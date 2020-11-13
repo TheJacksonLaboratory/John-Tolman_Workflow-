@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Belinda Cornes" />
+
+<meta name="date" content="2020-11-12" />
+
+<title>Phenotype QC [129Sj.v265d]</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">John/Tolman Workflow</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/thejacksonlaboratory/John-Tolman_workflow">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Phenotype QC [129Sj.v265d]</h1>
+<h4 class="author">Belinda Cornes</h4>
+<h4 class="date">2020-11-12</h4>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#phenotype-max_iop">Phenotype : Max_IOP</a></li>
+<li><a href="#transforming-data">Transforming Data</a></li>
+<li><a href="#outliers">Outliers</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#all-problematic-samples">All Problematic Samples</a></li>
+</ul>
+</div>
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2020-11-12
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong> <code>John-Toleman_workflow/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20201112code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20201112)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20201112code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20201112)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong4d36b43"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 4d36b43 </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrong4d36b43" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version 4d36b43. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    analysis/.DS_Store
+
+Untracked files:
+    Untracked:  analysis/2.1_geneseek2qtl2.R
+    Untracked:  analysis/2.2_geneseek2intensity.R
+    Untracked:  data/e_129Sj.v265d.RData
+    Untracked:  data/e_b6.v265d.RData
+    Untracked:  data/e_d2.q105x.RData
+    Untracked:  data/errors_ind.RData
+    Untracked:  data/m_129Sj.v265d.RData
+    Untracked:  data/m_b6.v265d.RData
+    Untracked:  data/m_d2.q105x.RData
+    Untracked:  data/nxo_129Sj.v265d.RData
+    Untracked:  data/nxo_b6.v265d.RData
+    Untracked:  data/nxo_d2.q105x.RData
+    Untracked:  data/percent_missing_id_129Sj.v265d.RData
+    Untracked:  data/percent_missing_id_b6.v265d.RData
+    Untracked:  data/percent_missing_id_d2.q105x.RData
+    Untracked:  data/summary.cg_129Sj.v265d.RData
+    Untracked:  data/summary.cg_b6.v265d.RData
+    Untracked:  data/summary.cg_d2.q105x.RData
+    Untracked:  output/Percent_missing_genotype_data_129Sj.v265d.pdf
+    Untracked:  output/Percent_missing_genotype_data_b6.v265d.pdf
+    Untracked:  output/Percent_missing_genotype_data_d2.q105x.pdf
+    Untracked:  output/number_crossover_129Sj.v265d.pdf
+    Untracked:  output/number_crossover_b6.v265d.pdf
+    Untracked:  output/number_crossover_d2.q105x.pdf
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+
+<p>
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/1.1_phenotypes_129Sj.v265d.Rmd</code>) and HTML (<code>docs/1.1_phenotypes_129Sj.v265d.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+4d36b43
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-12
+</td>
+<td>
+Build site
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<p>This script is to check the distribution of the data and to remove any outliers. Types of distribution:</p>
+<ul>
+<li>normal [no correction]</li>
+<li>positive skewness [possible correction: square root/logarithm]</li>
+<li>negative skewness [possible correction: reflect &amp; square root/reflect &amp; logarithm]</li>
+<li>positive kurtosis</li>
+<li>negative kurtosis</li>
+</ul>
+<div id="phenotype-max_iop" class="section level3">
+<h3>Phenotype : Max_IOP</h3>
+<pre class="r"><code>iop &lt;- ggplot(data= phenos_cc, aes(x=phenos_cc$Max_IOP)) + 
+geom_histogram(aes(y=..density..), fill=&quot;grey&quot;, color=&quot;white&quot;, position=&quot;identity&quot;) + 
+geom_vline(xintercept=mean(phenos_cc$Max_IOP),size = 1, col=&quot;red&quot;) + 
+labs(x=&quot;Max_IOP&quot;) + 
+stat_function(fun = dnorm, color=&quot;blue&quot;, size=1, args=list(mean=mean(phenos_cc$Max_IOP), sd=sd(phenos_cc$Max_IOP))) +
+ggtitle(&quot;Distribution of Max_IOP&quot;) +
+theme(plot.title = element_text(hjust = 0.5))
+
+iop</code></pre>
+<pre><code>Warning: Use of `phenos_cc$Max_IOP` is discouraged. Use `Max_IOP` instead.
+
+Warning: Use of `phenos_cc$Max_IOP` is discouraged. Use `Max_IOP` instead.</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="figure/1.1_phenotypes_129Sj.v265d.Rmd/plot%20sample%20distribution%20for%20Max_IOP-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>Hmisc::describe(samphen$Max_IOP) </code></pre>
+<pre><code>samphen$Max_IOP 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     136        0      123        1    16.36    3.336    13.14    13.51 
+     .25      .50      .75      .90      .95 
+   14.29    15.34    16.91    20.09    23.32 
+
+lowest : 12.515 12.735 12.835 12.910 13.040, highest: 27.975 30.180 30.390 31.725 31.855</code></pre>
+<pre class="r"><code>pastecs::stat.desc(samphen$Max_IOP) </code></pre>
+<pre><code>     nbr.val     nbr.null       nbr.na          min          max        range 
+ 136.0000000    0.0000000    0.0000000   12.5150000   31.8550000   19.3400000 
+         sum       median         mean      SE.mean CI.mean.0.95          var 
+2225.0450000   15.3425000   16.3606250    0.3131027    0.6192207   13.3325265 
+     std.dev     coef.var 
+   3.6513732    0.2231805 </code></pre>
+<pre class="r"><code>psych::describe(samphen$Max_IOP) </code></pre>
+<pre><code>   vars   n  mean   sd median trimmed  mad   min   max range skew kurtosis   se
+X1    1 136 16.36 3.65  15.34   15.67 1.86 12.52 31.86 19.34 2.46     6.62 0.31</code></pre>
+<p>Given the positive skewness of the data, the intent is to transform by square root/log, then check the skewness</p>
+</div>
+<div id="transforming-data" class="section level3">
+<h3>Transforming Data</h3>
+<div id="natural-log-transform" class="section level4">
+<h4>Natural Log Transform</h4>
+<pre class="r"><code>phenos_cc$ln.Max_IOP &lt;- log(phenos_cc$Max_IOP)
+
+lniop &lt;- ggplot(data= phenos_cc, aes(x=phenos_cc$ln.Max_IOP)) + 
+geom_histogram(aes(y=..density..), fill=&quot;grey&quot;, color=&quot;white&quot;, position=&quot;identity&quot;) + 
+geom_vline(xintercept=mean(phenos_cc$ln.Max_IOP),size = 1, col=&quot;red&quot;) + 
+labs(x=&quot;ln Max_IOP&quot;) + 
+stat_function(fun = dnorm, color=&quot;blue&quot;, size=1, args=list(mean=median(phenos_cc$ln.Max_IOP), sd=sd(phenos_cc$ln.Max_IOP))) +
+ggtitle(&quot;Distribution of ln Max_IOP&quot;) +
+theme(plot.title = element_text(hjust = 0.5))
+
+lniop</code></pre>
+<pre><code>Warning: Use of `phenos_cc$ln.Max_IOP` is discouraged. Use `ln.Max_IOP` instead.
+
+Warning: Use of `phenos_cc$ln.Max_IOP` is discouraged. Use `ln.Max_IOP` instead.</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="figure/1.1_phenotypes_129Sj.v265d.Rmd/transforming%20ln%20Max_IOP-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>Hmisc::describe(phenos_cc$ln.Max_IOP)  </code></pre>
+<pre><code>phenos_cc$ln.Max_IOP 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     136        0      123        1    2.776   0.1859    2.576    2.604 
+     .25      .50      .75      .90      .95 
+   2.659    2.731    2.828    3.000    3.148 
+
+lowest : 2.526928 2.544354 2.552176 2.558002 2.568022
+highest: 3.331311 3.407179 3.414114 3.457105 3.461194</code></pre>
+<pre class="r"><code>pastecs::stat.desc(phenos_cc$ln.Max_IOP) </code></pre>
+<pre><code>     nbr.val     nbr.null       nbr.na          min          max        range 
+136.00000000   0.00000000   0.00000000   2.52692792   3.46119436   0.93426643 
+         sum       median         mean      SE.mean CI.mean.0.95          var 
+377.48868163   2.73062674   2.77565207   0.01592815   0.03150097   0.03450399 
+     std.dev     coef.var 
+  0.18575250   0.06692211 </code></pre>
+<pre class="r"><code>psych::describe(phenos_cc$ln.Max_IOP) </code></pre>
+<pre><code>   vars   n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+X1    1 136 2.78 0.19   2.73    2.75 0.12 2.53 3.46  0.93  1.8     3.54 0.02</code></pre>
+</div>
+<div id="log-transform" class="section level4">
+<h4>Log Transform</h4>
+<pre class="r"><code>phenos_cc$log.Max_IOP &lt;- log10(phenos_cc$Max_IOP)
+
+logiop &lt;- ggplot(data= phenos_cc, aes(x=phenos_cc$log.Max_IOP)) + 
+geom_histogram(aes(y=..density..), fill=&quot;grey&quot;, color=&quot;white&quot;, position=&quot;identity&quot;) + 
+geom_vline(xintercept=mean(phenos_cc$log.Max_IOP),size = 1, col=&quot;red&quot;) + 
+labs(x=&quot;log Max_IOP&quot;) + 
+stat_function(fun = dnorm, color=&quot;blue&quot;, size=1, args=list(mean=median(phenos_cc$log.Max_IOP), sd=sd(phenos_cc$log.Max_IOP))) +
+ggtitle(&quot;Distribution of log Max_IOP&quot;) +
+theme(plot.title = element_text(hjust = 0.5))
+
+logiop</code></pre>
+<pre><code>Warning: Use of `phenos_cc$log.Max_IOP` is discouraged. Use `log.Max_IOP`
+instead.
+
+Warning: Use of `phenos_cc$log.Max_IOP` is discouraged. Use `log.Max_IOP`
+instead.</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="figure/1.1_phenotypes_129Sj.v265d.Rmd/transforming%20log%20Max_IOP-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>Hmisc::describe(phenos_cc$log.Max_IOP)  </code></pre>
+<pre><code>phenos_cc$log.Max_IOP 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     136        0      123        1    1.205  0.08074    1.119    1.131 
+     .25      .50      .75      .90      .95 
+   1.155    1.186    1.228    1.303    1.367 
+
+lowest : 1.097431 1.104999 1.108396 1.110926 1.115278
+highest: 1.446770 1.479719 1.482731 1.501402 1.503178</code></pre>
+<pre class="r"><code>pastecs::stat.desc(phenos_cc$log.Max_IOP) </code></pre>
+<pre><code>     nbr.val     nbr.null       nbr.na          min          max        range 
+1.360000e+02 0.000000e+00 0.000000e+00 1.097431e+00 1.503178e+00 4.057468e-01 
+         sum       median         mean      SE.mean CI.mean.0.95          var 
+1.639413e+02 1.185896e+00 1.205450e+00 6.917506e-03 1.368070e-02 6.507856e-03 
+     std.dev     coef.var 
+8.067129e-02 6.692211e-02 </code></pre>
+<pre class="r"><code>psych::describe(phenos_cc$log.Max_IOP) </code></pre>
+<pre><code>   vars   n mean   sd median trimmed  mad min max range skew kurtosis   se
+X1    1 136 1.21 0.08   1.19    1.19 0.05 1.1 1.5  0.41  1.8     3.54 0.01</code></pre>
+</div>
+<div id="sqrt-transform" class="section level4">
+<h4>Sqrt Transform</h4>
+<pre class="r"><code>phenos_cc$sqrt.Max_IOP &lt;- sqrt(phenos_cc$Max_IOP)
+
+sqrtiop &lt;- ggplot(data= phenos_cc, aes(x=phenos_cc$sqrt.Max_IOP)) + 
+geom_histogram(aes(y=..density..), fill=&quot;grey&quot;, color=&quot;white&quot;, position=&quot;identity&quot;) + 
+geom_vline(xintercept=mean(phenos_cc$sqrt.Max_IOP),size = 1, col=&quot;red&quot;) + 
+labs(x=&quot;sqrt Max_IOP&quot;) + 
+stat_function(fun = dnorm, color=&quot;blue&quot;, size=1, args=list(mean=median(phenos_cc$sqrt.Max_IOP), sd=sd(phenos_cc$sqrt.Max_IOP))) +
+ggtitle(&quot;Distribution of sqrt Max_IOP&quot;) +
+theme(plot.title = element_text(hjust = 0.5))
+
+sqrtiop</code></pre>
+<pre><code>Warning: Use of `phenos_cc$sqrt.Max_IOP` is discouraged. Use `sqrt.Max_IOP`
+instead.
+
+Warning: Use of `phenos_cc$sqrt.Max_IOP` is discouraged. Use `sqrt.Max_IOP`
+instead.</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="figure/1.1_phenotypes_129Sj.v265d.Rmd/transforming%20sqrt%20Max_IOP-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>Hmisc::describe(phenos_cc$sqrt.Max_IOP)  </code></pre>
+<pre><code>phenos_cc$sqrt.Max_IOP 
+       n  missing distinct     Info     Mean      Gmd      .05      .10 
+     136        0      123        1    4.024   0.3916    3.625    3.676 
+     .25      .50      .75      .90      .95 
+   3.780    3.917    4.112    4.482    4.828 
+
+lowest : 3.537655 3.568613 3.582597 3.593049 3.611094
+highest: 5.289140 5.493633 5.512713 5.632495 5.644023</code></pre>
+<pre class="r"><code>pastecs::stat.desc(phenos_cc$sqrt.Max_IOP) </code></pre>
+<pre><code>     nbr.val     nbr.null       nbr.na          min          max        range 
+136.00000000   0.00000000   0.00000000   3.53765459   5.64402339   2.10636880 
+         sum       median         mean      SE.mean CI.mean.0.95          var 
+547.30890416   3.91695033   4.02433018   0.03500176   0.06922271   0.16661674 
+     std.dev     coef.var 
+  0.40818714   0.10142983 </code></pre>
+<pre class="r"><code>psych::describe(phenos_cc$sqrt.Max_IOP) </code></pre>
+<pre><code>   vars   n mean   sd median trimmed  mad  min  max range skew kurtosis   se
+X1    1 136 4.02 0.41   3.92    3.95 0.24 3.54 5.64  2.11 2.12     4.97 0.04</code></pre>
+<p>Now that the transformation improved the fit of the data, we will check for any outliers</p>
+</div>
+</div>
+<div id="outliers" class="section level3">
+<h3>Outliers</h3>
+<div id="natural-log-transform-1" class="section level4">
+<h4>Natural Log Transform</h4>
+<pre class="r"><code>lower_bound &lt;- median(phenos_cc$ln.Max_IOP, na.rm=T) - 3 * mad(phenos_cc$ln.Max_IOP, na.rm=T)
+print(paste0(&quot;lower bound: &quot;,lower_bound))</code></pre>
+<pre><code>[1] &quot;lower bound: 2.36287945524912&quot;</code></pre>
+<pre class="r"><code>upper_bound &lt;- median(phenos_cc$ln.Max_IOP, na.rm=T) + 3 * mad(phenos_cc$ln.Max_IOP, na.rm=T)
+print(paste0(&quot;upper bound: &quot;, upper_bound))</code></pre>
+<pre><code>[1] &quot;upper bound: 3.09837402876169&quot;</code></pre>
+<pre class="r"><code>outlier_ind &lt;- subset(phenos_cc,(phenos_cc$ln.Max_IOP &lt; lower_bound | phenos_cc$ln.Max_IOP &gt; upper_bound))
+print(paste0(&quot;number of outliers: &quot;, nrow(outlier_ind)))</code></pre>
+<pre><code>[1] &quot;number of outliers: 8&quot;</code></pre>
+<pre class="r"><code>phenos_cc$ln.Max_IOP_out &lt;- ifelse(phenos_cc$ln.Max_IOP &lt; lower_bound  | phenos_cc$ln.Max_IOP &gt; upper_bound, &#39;Outlier&#39;,&#39;Keep&#39;)
+table(phenos_cc$ln.Max_IOP_out)</code></pre>
+<pre><code>
+   Keep Outlier 
+    128       8 </code></pre>
+</div>
+<div id="log-transform-1" class="section level4">
+<h4>Log Transform</h4>
+<pre class="r"><code>lower_bound &lt;- median(phenos_cc$log.Max_IOP, na.rm=T) - 3 * mad(phenos_cc$log.Max_IOP, na.rm=T)
+print(paste0(&quot;lower bound: &quot;,lower_bound))</code></pre>
+<pre><code>[1] &quot;lower bound: 1.02618550881725&quot;</code></pre>
+<pre class="r"><code>upper_bound &lt;- median(phenos_cc$log.Max_IOP, na.rm=T) + 3 * mad(phenos_cc$log.Max_IOP, na.rm=T)
+print(paste0(&quot;upper bound: &quot;, upper_bound))</code></pre>
+<pre><code>[1] &quot;upper bound: 1.34560674356355&quot;</code></pre>
+<pre class="r"><code>outlier_ind &lt;- subset(phenos_cc,(phenos_cc$log.Max_IOP &lt; lower_bound | phenos_cc$log.Max_IOP &gt; upper_bound))
+print(paste0(&quot;number of outliers: &quot;, nrow(outlier_ind)))</code></pre>
+<pre><code>[1] &quot;number of outliers: 8&quot;</code></pre>
+<pre class="r"><code>phenos_cc$log.Max_IOP_out &lt;- ifelse(phenos_cc$log.Max_IOP &lt; lower_bound  | phenos_cc$log.Max_IOP &gt; upper_bound, &#39;Outlier&#39;,&#39;Keep&#39;)
+table(phenos_cc$log.Max_IOP_out)</code></pre>
+<pre><code>
+   Keep Outlier 
+    128       8 </code></pre>
+</div>
+<div id="sqrt-transform-1" class="section level4">
+<h4>Sqrt Transform</h4>
+<pre class="r"><code>lower_bound &lt;- median(phenos_cc$sqrt.Max_IOP, na.rm=T) - 3 * mad(phenos_cc$sqrt.Max_IOP, na.rm=T)
+print(paste0(&quot;lower bound: &quot;,lower_bound))</code></pre>
+<pre><code>[1] &quot;lower bound: 3.20990617499857&quot;</code></pre>
+<pre class="r"><code>upper_bound &lt;- median(phenos_cc$sqrt.Max_IOP, na.rm=T) + 3 * mad(phenos_cc$sqrt.Max_IOP, na.rm=T)
+print(paste0(&quot;upper bound: &quot;, upper_bound))</code></pre>
+<pre><code>[1] &quot;upper bound: 4.62399448767484&quot;</code></pre>
+<pre class="r"><code>outlier_ind &lt;- subset(phenos_cc,(phenos_cc$sqrt.Max_IOP &lt; lower_bound | phenos_cc$sqrt.Max_IOP &gt; upper_bound))
+print(paste0(&quot;number of outliers: &quot;, nrow(outlier_ind)))</code></pre>
+<pre><code>[1] &quot;number of outliers: 8&quot;</code></pre>
+<pre class="r"><code>phenos_cc$sqrt.Max_IOP_out &lt;- ifelse(phenos_cc$sqrt.Max_IOP &lt; lower_bound  | phenos_cc$sqrt.Max_IOP &gt; upper_bound, &#39;Outlier&#39;,&#39;Keep&#39;)
+table(phenos_cc$sqrt.Max_IOP_out)</code></pre>
+<pre><code>
+   Keep Outlier 
+    128       8 </code></pre>
+</div>
+</div>
+<div id="conclusion" class="section level3">
+<h3>Conclusion</h3>
+<ul>
+<li><code>Max_IOP</code> was transformed using both sqrt and log/ln - will choose ln going forward as it offered the best correction for the skewness</li>
+</ul>
+</div>
+<div id="all-problematic-samples" class="section level3">
+<h3>All Problematic Samples</h3>
+<pre class="r"><code>phenos_cc_out &lt;- phenos_cc[phenos_cc$ln.Max_IOP_out == &quot;Keep&quot;,]
+phenosn_cc &lt;- phenos_cc_out[c(&quot;Sample ID...5&quot;,&quot;Geneseek.Sample.ID&quot;,&quot;Unique.Sample.ID&quot;,&quot;Max_IOP&quot;,&quot;ln.Max_IOP&quot;)]
+names(phenosn_cc)[1] &lt;- c(&quot;Original.Mouse.ID&quot;)
+#phenos$index &lt;- 1:nrow(phenos)
+
+#phenosn &lt;- merge(phenosn_cc, phenos[c(&quot;Mouse.ID&quot;,&quot;index&quot;)], by=c(&quot;Mouse.ID&quot;), all=T)
+
+#names(phenosn_cc)[2:5] &lt;- c(&quot;Time_min&quot;,&quot;Distance_m&quot;,&quot;Energy_J&quot;,&quot;rsqrt_Time_min&quot;)
+#phenosn[is.na(phenosn)] &lt;- &#39;&#39;
+
+#phenosno &lt;- phenosn[order(phenosn$index),]
+
+write.csv(phenosn_cc, paste0(filepaths,&quot;pheno_no.outliers_129Sj.v265d.csv&quot;), row.names=F, quote=F)</code></pre>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.2 (2019-12-12)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: macOS Catalina 10.15.6
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] psych_2.0.7     pastecs_1.3.21  Hmisc_4.4-0     Formula_1.2-3  
+[5] survival_3.1-8  lattice_0.20-38 readxl_1.3.1    ggplot2_3.3.2  
+[9] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.4.6        png_0.1-7           assertthat_0.2.1   
+ [4] rprojroot_1.3-2     digest_0.6.25       R6_2.4.1           
+ [7] cellranger_1.1.0    backports_1.1.7     acepack_1.4.1      
+[10] evaluate_0.14       pillar_1.4.4        rlang_0.4.6        
+[13] rstudioapi_0.11     data.table_1.12.8   whisker_0.4        
+[16] rpart_4.1-15        Matrix_1.2-18       checkmate_2.0.0    
+[19] rmarkdown_2.1       labeling_0.3        splines_3.6.2      
+[22] stringr_1.4.0       foreign_0.8-72      htmlwidgets_1.5.1  
+[25] munsell_0.5.0       compiler_3.6.2      httpuv_1.5.2       
+[28] xfun_0.13           pkgconfig_2.0.3     base64enc_0.1-3    
+[31] mnormt_1.5-7        htmltools_0.4.0     nnet_7.3-12        
+[34] tidyselect_1.0.0    tibble_3.0.1        gridExtra_2.3      
+[37] htmlTable_1.13.3    crayon_1.3.4        dplyr_0.8.5        
+[40] withr_2.2.0         later_1.0.0         grid_3.6.2         
+[43] nlme_3.1-142        gtable_0.3.0        lifecycle_0.2.0    
+[46] git2r_0.26.1        magrittr_1.5        scales_1.1.1       
+[49] stringi_1.4.6       farver_2.0.3        fs_1.4.1           
+[52] promises_1.1.0      latticeExtra_0.6-29 ellipsis_0.3.1     
+[55] vctrs_0.3.1         boot_1.3-23         RColorBrewer_1.1-2 
+[58] tools_3.6.2         glue_1.4.1          purrr_0.3.4        
+[61] jpeg_0.1-8.1        parallel_3.6.2      yaml_2.2.1         
+[64] colorspace_1.4-1    cluster_2.1.0       knitr_1.28         </code></pre>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
