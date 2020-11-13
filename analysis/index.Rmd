@@ -1,11 +1,64 @@
 ---
-title: "Home"
+title: "John/Tolman Workflow"
+author: "Belinda Cornes"
+date: "`r Sys.Date()`"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
-    toc: false
-editor_options:
-  chunk_output_type: console
+    toc: true
 ---
 
-Welcome to my research website.
+### Project At A Glance
+* Samples: b6.v265d
+	+ [Total Samples: 202](0.1_samples_batch_b6.v265d.html)
+	+ [BAF & LRR plots](BAF.LRR.samples_b6.v265d.html)
+* Samples: b6.q105x
+	+ [Total Samples: ??](0.1_samples_batch_b6.q105x.html)
+	+ [BAF & LRR plots](BAF.LRR.samples_b6.q105x.html)
+* Samples: d2.q105x
+	+ [Total Samples: 134](0.1_samples_batch_d2.q105x.html)
+	+ [BAF & LRR plots](BAF.LRR.samples_d2.q105x.html)
+* Samples: 129Sj.v265d
+	+ [Total Samples: 136](0.1_samples_batch_129Sj.v265d.html)
+	+ [BAF & LRR plots](BAF.LRR.samples_129Sj.v265d.html)
+
+### 1. Phenotype QC
+* Phenotypes - Max_IOP
+	+ [b6.v265d](1.1_phenotypes_b6.v265d.html)
+	+ [b6.q105x](1.1_phenotypes_b6.q105x.html)
+	+ [d2.q105x](1.1_phenotypes_d2.q105x.html)
+	+ [129Sj.v265d](1.1_phenotypes_129Sj.v265d.html)
+
+### 2. Genotype QC
+* Step 1: Sample QC 
+	+ [b6.v265d](2.1_sample_bqc_b6.v265d.html)
+	+ [b6.q105x](2.1_sample_bqc_b6.q105x.html)
+	+ [d2.q105x](2.1_sample_bqc_d2.q105x.html)
+	+ [129Sj.v265d](2.1_sample_bqc_129Sj.v265d.html)
+* Step 2: SNP QC (Monomorphic, Genotype Error & Missing Data)
+	+ [b6.v265d](2.2.1_snp_qc_b6.v265d.html)
+	+ [b6.q105x](2.2.1_snp_qc_b6.q105x.html)
+	+ [d2.q105x](2.2.1_snp_qc_d2.q105x.html)
+	+ [129Sj.v265d](2.2.1_snp_qc_129Sj.v265d.html)
+* Step 3: Effect of Data Cleaning
+	+ [b6.v265d](2.3.1_afterqc_b6.v265d.html)
+	+ [b6.q105x](2.3.1_afterqc_b6.q105x.html)
+	+ [d2.q105x](2.3.1_afterqc_d2.q105x.html)
+	+ [129Sj.v265d](2.3.1_afterqc_129Sj.v265d.html)
+* Step 4: Preparing Files for QTL Analysis
+	+ [b6.v265d](2.4.1_preparing_files_b6.v265d.html)
+	+ [b6.q105x](2.4.1_preparing_files_b6.q105x.html)
+	+ [d2.q105x](2.4.1_preparing_files_d2.q105x.html)
+	+ [129Sj.v265d](2.4.1_preparing_files_129Sj.v265d.html)
+
+### 3. QTL Analysis
+* Step 1: Recombination Block Size & Founder Proportions
+* Step 2: GCTA Heritability
+* Step 3: QTL Mapping (`R/qtl2`)
+* Step 4: QTL Permutation (`R/qtl2`)
+* Step 5: QTL Best Linear Unbiased Prediction (BLUP) (`R/qtl2`)
+* Step 6: Results from `R/qtl2` analysis [Raw Data]
+	+ [b6.v265d](2.4.1_preparing_files_b6.v265d.html)
+	+ [b6.q105x](2.4.1_preparing_files_b6.q105x.html)
+	+ [d2.q105x](2.4.1_preparing_files_d2.q105x.html)
+	+ [129Sj.v265d](2.4.1_preparing_files_129Sj.v265d.html)
