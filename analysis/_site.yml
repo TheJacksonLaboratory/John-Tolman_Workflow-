@@ -1,7 +1,7 @@
-name: "John-Toleman_workflow"
+name: John/Tolman Workflow
 output_dir: ../docs
 navbar:
-  title: "John-Toleman_workflow"
+  title: John/Tolman Workflow
   left:
   - text: Home
     href: index.html
@@ -9,9 +9,13 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/TheJacksonLaboratory/John-Tolman_Workflow
 output:
   workflowr::wflow_html:
     toc: yes
-    toc_float: yes
-    theme: cosmo
+    toc_float: no
+    theme: spacelab
     highlight: textmate
