@@ -130,7 +130,6 @@ snps$pos <- snps$pos * 1e-6
 rownames(snps) <- snps$marker
 colnames(snps)[1:4] <- c("marker", "chr", "pos", "pos") 
 
-
 #  g <- h5read(hdf5_filename, "G")
 #  g <- do.call(cbind, g)
 x <- h5read(hdf5_filename, "X") # X channel intensities
@@ -346,38 +345,58 @@ summary.cg$remove.id
 #load the intensities.fst.RData
 #load("data/intensities.fst.RData")
 
-#X and Y channel
-#X <- result[result$channel == "X",]
-#X <- x[chrx,ind_ids(gm)]
-#rownames(X) <- X$snp
-#X <- X[,c(-1,-2)]
+xn <- x[,ind_ids(gm)]
+xn <- xn[snps$marker,]
+xnm <- rownames(xn)
 
-#Y <- result[result$channel == "Y",]
-#rownames(Y) <- Y$snp
-#Y <- Y[,c(-1,-2)]
+yn <- y[,ind_ids(gm)]
+yn <- yn[snps$marker,]
+
+# bring together in one matrix
+result <- cbind(snp=rep(snps$marker, 2),
+                channel=rep(c("x", "y"), each=length(snps$marker)),
+                as.data.frame(rbind(xn, yn)))
+rownames(result) <- 1:nrow(result)
+
+# bring SNP rows together
+result <- result[as.numeric(t(cbind(seq_along(snps$marker), seq_along(snps$marker)+length(snps$marker)))),]
+rownames(result) <- 1:nrow(result)
+
+#load the intensities.fst.RData
+#load("data/heh/intensities.fst.RData")
+#X and Y channel
+X <- result[result$channel == "x",]
+rownames(X) <- X$snp
+X <- X[,c(-1,-2)]
+
+Y <- result[result$channel == "y",]
+rownames(Y) <- Y$snp
+Y <- Y[,c(-1,-2)]
+
+int <- result
 
 #int <- result
 
 #rm(result)
-#int <- int[seq(1, nrow(int), by=2),-(1:2)] + int[-seq(1, nrow(int), by=2),-(1:2)]
-#int <- int[,intersect(ind_ids(gm), colnames(int))]
-#n <- names(sort(percent_missing[intersect(ind_ids(gm), colnames(int))], decreasing=TRUE))
-#iboxplot(log10(t(int[,n])+1), orderByMedian=FALSE, chartOpts=list(ylab="log10(SNP intensity + 1)"))
+int <- int[seq(1, nrow(int), by=2),-(1:2)] + int[-seq(1, nrow(int), by=2),-(1:2)]
+int <- int[,intersect(ind_ids(gm), colnames(int))]
+n <- names(sort(percent_missing[intersect(ind_ids(gm), colnames(int))], decreasing=TRUE))
+iboxplot(log10(t(int[,n])+1), orderByMedian=FALSE, chartOpts=list(ylab="log10(SNP intensity + 1)"))
 
 ```
 In the above plot, distributions of array intensities (after a log10(x+1) transformation) are displayed. 
 
 The arrays are sorted by the proportion of missing genotype data for the sample, and the curves connect various quantiles of the intensities.
 
-```{r Array intensities percentilw figure, fig.height = 6, fig.width = 9.5, fig.align = "center"}
+```{r Array intensities percentile figure, fig.height = 6, fig.width = 9.5, fig.align = "center"}
 
-#qu <- apply(int, 2, quantile, c(0.01, 0.99), na.rm=TRUE)
-#group <- (percent_missing >= 19.97) + (percent_missing > 5) + (percent_missing > 2) + 1
-#labels <- paste0(colnames(qu), " (", round(percent_missing), "%)")
-#iplot(qu[1,], qu[2,], indID=labels, group=group,
-#      chartOpts=list(xlab="1 %ile of array intensities",
-#                     ylab="99 %ile of array intensities",
-#                     pointcolor=c("#ccc", "slateblue", "Orchid", "#ff851b")))
+qu <- apply(int, 2, quantile, c(0.01, 0.99), na.rm=TRUE)
+group <- (percent_missing >= 19.97) + (percent_missing > 5) + (percent_missing > 2) + 1
+labels <- paste0(colnames(qu), " (", round(percent_missing), "%)")
+iplot(qu[1,], qu[2,], indID=labels, group=group,
+      chartOpts=list(xlab="1 %ile of array intensities",
+                     ylab="99 %ile of array intensities",
+                     pointcolor=c("#ccc", "slateblue", "Orchid", "#ff851b")))
 ```
 For this particular set of arrays, a plot of the 1 %ile vs the 99 %ile is quite revealing. In the following, the orange points are those with > 20% missing genotypes, the pink points are the samples with 5-20% missing genotypes, and the blue points are the samples with 2-5% missing genotypes.
 
@@ -536,7 +555,7 @@ lab <- paste0(names(errors_ind), " (", myround(percent_missing[rownames(gm$covar
 iplot(seq_along(errors_ind), errors_ind, indID=lab,
       chartOpts=list(xlab="Mouse", ylab="Percent genotyping errors", ylim=c(0, 8),
                      axispos=list(xtitle=25, ytitle=50, xlabel=5, ylabel=5)))
-save(errors_ind, file = "data/errors_ind.RData")
+save(errors_ind, file = "data/errors_ind_b6.v265d.RData")
 
 ```
 
@@ -548,40 +567,40 @@ save(errors_ind, file = "data/errors_ind.RData")
 #snpg <- gm$geno
 
 #snpgn <- snpg[rownames(gm$covar),]
-snpgn <- do.call("cbind", gm$geno)
+#snpgn <- do.call("cbind", gm$geno)
 
-gobs <- do.call("cbind", gm$geno)
-gobs[gobs==0] <- NA
+#gobs <- do.call("cbind", gm$geno)
+#gobs[gobs==0] <- NA
 
-par(pty="s")
-err_direct <- rowMeans(snpgn != gobs, na.rm=TRUE)*100
-errors_ind_0 <- rowSums(e > 0)[rownames(gm$covar)]/n_typed(gm)*100
-par(mar=c(4.1,4.1,0.6, 0.6))
-grayplot(errors_ind_0, err_direct,
-         xlab="Percent errors (error LOD > 0)",
-         ylab="Percent errors (obs vs predicted)",
-         xlim=c(0, 2), ylim=c(0, 2))
-abline(0,1,lty=2, col="gray60")
+#par(pty="s")
+#err_direct <- rowMeans(snpgn != gobs, na.rm=TRUE)*100
+#errors_ind_0 <- rowSums(e > 0)[rownames(gm$covar)]/n_typed(gm)*100
+#par(mar=c(4.1,4.1,0.6, 0.6))
+#grayplot(errors_ind_0, err_direct,
+#         xlab="Percent errors (error LOD > 0)",
+#         ylab="Percent errors (obs vs predicted)",
+#         xlim=c(0, 2), ylim=c(0, 2))
+#abline(0,1,lty=2, col="gray60")
 
-pdf(file = "output/Percent_genotype_errors_obs_vs_predicted_b6.v265d.pdf",width = 20, height = 20) 
-par(pty="s")
-err_direct <- rowMeans(snpgn != gobs, na.rm=TRUE)*100
-errors_ind_0 <- rowSums(e > 0)[rownames(gm$covar)]/n_typed(gm)*100
-par(mar=c(4.1,4.1,0.6, 0.6))
-grayplot(errors_ind_0, err_direct,
-         xlab="Percent errors (error LOD > 0)",
-         ylab="Percent errors (obs vs predicted)",
-         xlim=c(0, 2), ylim=c(0, 2))
-abline(0,1,lty=2, col="gray60")
-dev.off()
+#pdf(file = "output/Percent_genotype_errors_obs_vs_predicted_b6.v265d.pdf",width = 20, height = 20) 
+#par(pty="s")
+#err_direct <- rowMeans(snpgn != gobs, na.rm=TRUE)*100
+#errors_ind_0 <- rowSums(e > 0)[rownames(gm$covar)]/n_typed(gm)*100
+#par(mar=c(4.1,4.1,0.6, 0.6))
+#grayplot(errors_ind_0, err_direct,
+#         xlab="Percent errors (error LOD > 0)",
+#         ylab="Percent errors (obs vs predicted)",
+#         xlim=c(0, 2), ylim=c(0, 2))
+#abline(0,1,lty=2, col="gray60")
+#dev.off()
 
-par(pty="s")
-par(mar=c(4.1,4.1,0.6, 0.6))
-grayplot(errors_ind_0, err_direct,
-         xlab="Percent errors (error LOD > 0)",
-         ylab="Percent errors (obs vs predicted)",
-         xlim=c(0, 0.4), ylim=c(0, 0.4))
-abline(0,1,lty=2, col="gray60")
+#par(pty="s")
+#par(mar=c(4.1,4.1,0.6, 0.6))
+#grayplot(errors_ind_0, err_direct,
+#         xlab="Percent errors (error LOD > 0)",
+#         ylab="Percent errors (obs vs predicted)",
+#         xlim=c(0, 0.4), ylim=c(0, 0.4))
+#abline(0,1,lty=2, col="gray60")
 
 ```
 
@@ -606,14 +625,15 @@ qc_info$sex.match <- ifelse(samples$Inferred.Sex != samples$Sex, TRUE, FALSE)
 
 
 #genotype errors
-qc_info <- merge(qc_info,
-                 data.frame(id = names(errors_ind),
-                            genotype_erros = errors_ind,stringsAsFactors = F),by = "id")
+#qc_info <- merge(qc_info,
+#                 data.frame(id = names(errors_ind),
+#                            genotype_erros = errors_ind,stringsAsFactors = F),by = "id")
 
 ##duplicated id to be remove
 qc_info$remove.id.duplicated <- ifelse(qc_info$id %in% summary.cg$remove.id, TRUE,FALSE)
-#
-bad.sample <- qc_info[qc_info$generation ==1 | qc_info$Number_crossovers <= 200 | qc_info$Number_crossovers >=1000 | qc_info$percent_missing >= 10 | qc_info$genotype_erros >= 1 | qc_info$remove.id.duplicated == TRUE,]
+
+#bad.sample <- qc_info[qc_info$generation ==1 | qc_info$Number_crossovers <= 200 | qc_info$Number_crossovers >=1000 | qc_info$percent_missing >= 10 | qc_info$genotype_erros >= 1 | qc_info$remove.id.duplicated == TRUE,]
+bad.sample <- qc_info[qc_info$generation ==1 | qc_info$Number_crossovers <= 200 | qc_info$Number_crossovers >=1000 | qc_info$percent_missing >= 10 | qc_info$remove.id.duplicated == TRUE,]
 
 save(qc_info, bad.sample, file = "data/qc_info_bad_sample_b6.v265d.RData")
 
@@ -690,8 +710,8 @@ bad <- NULL
 bad$Mouse_ID <- bad.sample$"Sample ID...5"
 #bad<-as.data.frame(bad)
 bad$Neogen_Sample_ID <- bad.sample$"Sample ID...4"
-bad$Unique_Sample_ID <- bad.sample$id
-bad$no_pheno <- ifelse(is.na(bad.sample$Max_IOP)==TRUE, 'XX', '')
+bad$Unique_Sample_ID <- as.character(bad.sample$id)
+bad$no_pheno <- ifelse(bad.sample$Max_IOP=='', 'XX', '')
 bad$high_miss <- ifelse(bad.sample$percent_missing >= 10, 'XX', '')
 bad$diff_sex <- ifelse(bad.sample$sex.match ==TRUE | is.na(bad.sample$sex.match) == TRUE, 'XX', '')
 bad$high_xo <- ifelse(bad.sample$Number_crossovers <= 200 | bad.sample$Number_crossovers >=1000, 'XX', '')
@@ -700,16 +720,18 @@ bad$high_geno.errors <- ifelse(bad.sample$genotype_erros >= 1, 'XX', '')
 bad$duplicate_ID <- ifelse(bad.sample$duplicated == TRUE, 'XX', '')
 bad[is.na(bad)] <- ""
 bad[bad=='NA'] <- ""
-bad <- as.data.frame(bad)
+df <- do.call(cbind, bad)
+bad <- as.data.frame(df)
 
 badind <- subset(bad, 
-         #bad$no_pheno == 'XX'|
+         bad$no_pheno == 'XX'|
          bad$high_miss == 'XX'|
          bad$diff_sex == 'XX'|  
          bad$high_xo == 'XX'|
-         bad$high_geno.errors == 'XX'|
+         #bad$high_geno.errors == 'XX'|
          #bad$DO_generation == 'XX'|
          bad$duplicate_ID == 'XX')
+#badind <- bad[bad$no_pheno == 'XX',]
 
 badind[] <- lapply(badind, as.character)
 #badind$Thaiss_ID <- ifelse(badind$Thaiss == 994 | badind$Thaiss == 995 | badind$Thaiss == 996 |badind$Thaiss == 997 | badind$Thaiss == 998 | badind$Thaiss == 999, "--", bad$Thaiss_ID)
@@ -729,12 +751,12 @@ badind[] %>%
      high_xo = ifelse(high_xo == 'XX',
                   cell_spec(high_xo, color = 'purple',background = 'purple'),
                   ''),
-     high_geno.errors = ifelse(high_geno.errors == 'XX',
-                  cell_spec(high_geno.errors, color = 'pink',background = 'pink'),
-                  ''),
-     #DO_generation = ifelse(DO_generation == 'XX',
-     #             cell_spec(DO_generation, color = 'light blue',background = 'ligh blue'),
+     #high_geno.errors = ifelse(high_geno.errors == 'XX',
+     #             cell_spec(high_geno.errors, color = 'pink',background = 'pink'),
      #             ''),
+     DO_generation = ifelse(DO.Generation == 'XX',
+                  cell_spec(DO.Generation, color = 'light blue',background = 'ligh blue'),
+                  ''),
      duplicate_ID = ifelse(duplicate_ID == 'XX',
                   cell_spec(duplicate_ID, color = 'orange',background = 'orange'),
                   '')

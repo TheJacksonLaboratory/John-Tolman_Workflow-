@@ -11,16 +11,19 @@ output:
 ### Project At A Glance
 * Samples: b6.v265d
 	+ [Total Samples: 202](0.1_samples_batch_b6.v265d.html)
-	+ [BAF & LRR plots](BAF.LRR.samples_b6.v265d.html)
 * Samples: b6.q105x
 	+ [Total Samples: ??](0.1_samples_batch_b6.q105x.html)
-	+ [BAF & LRR plots](BAF.LRR.samples_b6.q105x.html)
 * Samples: d2.q105x
 	+ [Total Samples: 134](0.1_samples_batch_d2.q105x.html)
-	+ [BAF & LRR plots](BAF.LRR.samples_d2.q105x.html)
 * Samples: 129Sj.v265d
 	+ [Total Samples: 136](0.1_samples_batch_129Sj.v265d.html)
-	+ [BAF & LRR plots](BAF.LRR.samples_129Sj.v265d.html)
+
+### Haplotype Phasing
+* Before QC
+	+ [b6.v265d](0.2_haplotype_comparison_bqc_b6.v265d.html)
+	+ [b6.q105x](0.2_haplotype_comparison_bqc_b6.q105x.html)
+	+ [d2.q105x](0.2_haplotype_comparison_bqc_d2.q105x.html)
+	+ [129Sj.v265d](0.2_haplotype_comparison_bqc_129Sj.v265d.html)
 
 ### 1. Phenotype QC
 * Phenotypes - Max_IOP
