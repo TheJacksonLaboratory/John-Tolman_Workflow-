@@ -11,7 +11,7 @@
 
 <meta name="author" content="Belinda Cornes" />
 
-<meta name="date" content="2020-11-14" />
+<meta name="date" content="2020-11-15" />
 
 <title>Haplotype Phasing Before QC [d2.q105x]</title>
 
@@ -312,7 +312,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Haplotype Phasing Before QC [d2.q105x]</h1>
 <h4 class="author">Belinda Cornes</h4>
-<h4 class="date">2020-11-14</h4>
+<h4 class="date">2020-11-15</h4>
 
 </div>
 
@@ -343,7 +343,7 @@ $(document).ready(function () {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-11-14
+<strong>Last updated:</strong> 2020-11-15
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -434,16 +434,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomTheJacksonLaboratoryJohnTolmanWorkflowtreeec48947a2a1d4e34e8bd837e821f28c4c5d0b0bbtargetblankec48947a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/tree/ec48947a2a1d4e34e8bd837e821f28c4c5d0b0bb" target="_blank">ec48947</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomTheJacksonLaboratoryJohnTolmanWorkflowtreec284bf16c34f4b33dbb75393e256abb35d987738targetblankc284bf1a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/tree/c284bf16c34f4b33dbb75393e256abb35d987738" target="_blank">c284bf1</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomTheJacksonLaboratoryJohnTolmanWorkflowtreeec48947a2a1d4e34e8bd837e821f28c4c5d0b0bbtargetblankec48947a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomTheJacksonLaboratoryJohnTolmanWorkflowtreec284bf16c34f4b33dbb75393e256abb35d987738targetblankc284bf1a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/tree/ec48947a2a1d4e34e8bd837e821f28c4c5d0b0bb" target="_blank">ec48947</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/tree/c284bf16c34f4b33dbb75393e256abb35d987738" target="_blank">c284bf1</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -609,6 +609,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/c284bf16c34f4b33dbb75393e256abb35d987738/analysis/0.2_haplotype_comparison_bqc_d2.q105x.Rmd" target="_blank">c284bf1</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-15
+</td>
+<td>
+updating genoprobs
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/TheJacksonLaboratory/John-Tolman_Workflow/3792d7b3394d9e30b081546301461b7edb6c151f/docs/0.2_haplotype_comparison_bqc_d2.q105x.html" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/ec48947a2a1d4e34e8bd837e821f28c4c5d0b0bb/analysis/0.2_haplotype_comparison_bqc_d2.q105x.Rmd" target="_blank">ec48947</a>
 </td>
 <td>
@@ -653,205 +687,5395 @@ No. markers by chr:
 10423 10441  8206  7955  8030  8130  7760  6717  6984  6631  7433  6444  6327 
    14    15    16    17    18    19     X 
  6230  5534  5179  5323  4787  3676  5092 </code></pre>
+<pre class="r"><code>pr &lt;- readRDS(&quot;/Users/corneb/Documents/MyJax/CS/Projects/Simon.John.Tolman/haplo.reconst/2020-11-11/d2.q105x/all_samples_sorted/Jax.Columbia_John__GigaMUGA_genoprobs_8state_sorted.rds&quot;)
+mice &lt;- ind_ids(gm)
+micelg &lt;- as.data.frame(mice)
+micelg$miceids &lt;- sapply(strsplit(as.character(micelg$mice),&#39;_&#39;,fixed=T),function(x) x[6])
+micelg &lt;- micelg[order(micelg$miceids),]
+mice &lt;- micelg$mice</code></pre>
 </div>
 <div id="phased-plots" class="section level3">
 <h3>Phased Plots</h3>
-<pre class="r"><code>for(i in ind_ids(gm)){
+<pre class="r"><code>for(i in mice){
 
-    gmi &lt;- gm[i, ] # subset to individual 146
-    map &lt;- insert_pseudomarkers(gmi$gmap, step=1)
-    pr &lt;- calc_genoprob(gmi, map, error_prob=0.002)
+    print(i)
+    mouse.id &lt;- sapply(strsplit(as.character(i),&#39;_&#39;,fixed=T),function(x) x[6])
+    print(mouse.id)
+
+    gmi &lt;- gm[i, ] 
+    #map &lt;- insert_pseudomarkers(gmi$gmap, step=1)
+    #pr &lt;- calc_genoprob(gmi, map, error_prob=0.002)
+    pr.new &lt;- pr[i,]
 
     # infer genotypes, as those with maximal marginal probability
-    m &lt;- maxmarg(pr, minprob = 0.4)
+    m &lt;- maxmarg(pr.new, minprob = 0.2)
 
     # guess phase
     ph &lt;- guess_phase(gmi, m)
 
     # plot phased genotypes
-    plot_onegeno(ph, map, main = paste0(i, &quot; [genoprobs]&quot;),  shift=TRUE)
+    plot_onegeno(ph, gmi$gmap, main = paste0(mouse.id, &quot;/&quot;, i,&quot; [genoprobs]&quot;),  shift=TRUE)
 }</code></pre>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20190728_448685_B12&quot;
+[1] &quot;448685&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-1.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-2.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-3.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-4.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-12 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-5.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-6.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-7.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-13 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-1">
+Past versions of “phased plots-1.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-1.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_448686_G5&quot;
+[1] &quot;448686&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-2">
+Past versions of “phased plots-2.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-2.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_448693_B12&quot;
+[1] &quot;448693&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-3">
+Past versions of “phased plots-3.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-3.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191114_448695_E2&quot;
+[1] &quot;448695&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-4">
+Past versions of “phased plots-4.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-4.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_448696_C2&quot;
+[1] &quot;448696&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-5.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-5">
+Past versions of “phased plots-5.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-5" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-5.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_448929_F8&quot;
+[1] &quot;448929&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-6.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-6">
+Past versions of “phased plots-6.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-6" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-6.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_448931_F8&quot;
+[1] &quot;448931&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-7.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-7">
+Past versions of “phased plots-7.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-7" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-7.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_448942_E3&quot;
+[1] &quot;448942&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-8.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-8">
+Past versions of “phased plots-8.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-8" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-8.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_448943_H11&quot;
+[1] &quot;448943&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-9.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-13 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-9">
+Past versions of “phased plots-9.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-9" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-9.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_448952_A7&quot;
+[1] &quot;448952&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-10.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-10">
+Past versions of “phased plots-10.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-10" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-10.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_448953_D5&quot;
+[1] &quot;448953&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-11.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-13 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-12.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-13.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-14.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-15.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-11">
+Past versions of “phased plots-11.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-11" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-11.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_448957_D10&quot;
+[1] &quot;448957&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-12.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-12">
+Past versions of “phased plots-12.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-12" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-12.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_448958_H5&quot;
+[1] &quot;448958&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-13.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-13">
+Past versions of “phased plots-13.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-13" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-13.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_448965_H10&quot;
+[1] &quot;448965&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-14.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-14">
+Past versions of “phased plots-14.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-14" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-14.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_448966_B10&quot;
+[1] &quot;448966&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-15.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-15">
+Past versions of “phased plots-15.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-15" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-15.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_448968_G12&quot;
+[1] &quot;448968&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-16.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-16">
+Past versions of “phased plots-16.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-16" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-16.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_448969_D2&quot;
+[1] &quot;448969&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-17.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-17">
+Past versions of “phased plots-17.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-17" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-17.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_448979_D6&quot;
+[1] &quot;448979&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-18.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-19.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-20.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-21.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-22.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-23.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-24.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-25.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-18">
+Past versions of “phased plots-18.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-18" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-18.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_448981_H5&quot;
+[1] &quot;448981&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-19.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-19">
+Past versions of “phased plots-19.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-19" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-19.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_449090_F1&quot;
+[1] &quot;449090&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-20.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-20">
+Past versions of “phased plots-20.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-20" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-20.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_449091_E11&quot;
+[1] &quot;449091&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-21.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-21">
+Past versions of “phased plots-21.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-21" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-21.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_449093_E10&quot;
+[1] &quot;449093&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-22.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-22">
+Past versions of “phased plots-22.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-22" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-22.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_449094_C7&quot;
+[1] &quot;449094&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-23.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-23">
+Past versions of “phased plots-23.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-23" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-23.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191114_449104_G1&quot;
+[1] &quot;449104&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-24.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-24">
+Past versions of “phased plots-24.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-24" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-24.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_449105_C9&quot;
+[1] &quot;449105&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-25.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-25">
+Past versions of “phased plots-25.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-25" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-25.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_449113_G7&quot;
+[1] &quot;449113&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-26.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-27.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-28.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-29.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-30.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-31.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-32.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-33.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-34.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-35.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-36.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-26">
+Past versions of “phased plots-26.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-26" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-26.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_449117_D11&quot;
+[1] &quot;449117&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-27.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-27">
+Past versions of “phased plots-27.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-27" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-27.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_449119_D12&quot;
+[1] &quot;449119&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-28.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-28">
+Past versions of “phased plots-28.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-28" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-28.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Columbia_University_John_MURGIGV01_20200529_449119_F2&quot;
+[1] &quot;449119&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-29.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-29">
+Past versions of “phased plots-29.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-29" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-29.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_449120_D9&quot;
+[1] &quot;449120&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-30.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-30">
+Past versions of “phased plots-30.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-30" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-30.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_449132_D11&quot;
+[1] &quot;449132&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-31.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-31">
+Past versions of “phased plots-31.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-31" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-31.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Columbia_University_John_MURGIGV01_20200529_449132_D8&quot;
+[1] &quot;449132&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-32.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-32">
+Past versions of “phased plots-32.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-32" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-32.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_449134_E4&quot;
+[1] &quot;449134&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-33.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-33">
+Past versions of “phased plots-33.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-33" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-33.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_449210_A12&quot;
+[1] &quot;449210&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-34.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-34">
+Past versions of “phased plots-34.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-34" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-34.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450492_E11&quot;
+[1] &quot;450492&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-35.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-35">
+Past versions of “phased plots-35.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-35" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-35.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_450496_C10&quot;
+[1] &quot;450496&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-36.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-36">
+Past versions of “phased plots-36.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-36" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-36.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_450504_H6&quot;
+[1] &quot;450504&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-37.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-38.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-39.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-40.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-41.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-37">
+Past versions of “phased plots-37.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-37" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-37.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450505_E9&quot;
+[1] &quot;450505&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-38.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-38">
+Past versions of “phased plots-38.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-38" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-38.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450510_B11&quot;
+[1] &quot;450510&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-39.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-39">
+Past versions of “phased plots-39.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-39" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-39.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450512_H1&quot;
+[1] &quot;450512&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-40.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-40">
+Past versions of “phased plots-40.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-40" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-40.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20190728_450521_A4&quot;
+[1] &quot;450521&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-41.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-41">
+Past versions of “phased plots-41.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-41" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-41.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_450522_A12&quot;
+[1] &quot;450522&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-42.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-43.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-44.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-45.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-42">
+Past versions of “phased plots-42.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-42" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-42.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450523_G6&quot;
+[1] &quot;450523&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-43.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-43">
+Past versions of “phased plots-43.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-43" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-43.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450526_B5&quot;
+[1] &quot;450526&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-44.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-44">
+Past versions of “phased plots-44.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-44" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-44.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_450609_A6&quot;
+[1] &quot;450609&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-45.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-45">
+Past versions of “phased plots-45.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-45" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-45.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450611_H4&quot;
+[1] &quot;450611&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-46.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-47.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-48.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-14 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-46">
+Past versions of “phased plots-46.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-46" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-46.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450614_F7&quot;
+[1] &quot;450614&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-47.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-47">
+Past versions of “phased plots-47.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-47" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-47.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_450617_B5&quot;
+[1] &quot;450617&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-48.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-48">
+Past versions of “phased plots-48.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-48" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-48.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_450622_D9&quot;
+[1] &quot;450622&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-49.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-49">
+Past versions of “phased plots-49.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-49" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-49.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450623_E10&quot;
+[1] &quot;450623&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-50.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-14 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-50">
+Past versions of “phased plots-50.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-50" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-50.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450638_H8&quot;
+[1] &quot;450638&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-51.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-14 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-51">
+Past versions of “phased plots-51.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-51" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-51.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_450655_G11&quot;
+[1] &quot;450655&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-52.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-52">
+Past versions of “phased plots-52.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-52" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-52.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450656_A3&quot;
+[1] &quot;450656&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-53.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-54.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-55.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-56.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-57.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-58.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-59.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-60.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-61.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-62.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-63.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-64.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-65.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-66.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-67.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-68.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-53">
+Past versions of “phased plots-53.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-53" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-53.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450658_C11&quot;
+[1] &quot;450658&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-54.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-54">
+Past versions of “phased plots-54.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-54" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-54.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450662_F4&quot;
+[1] &quot;450662&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-55.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-55">
+Past versions of “phased plots-55.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-55" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-55.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450751_A8&quot;
+[1] &quot;450751&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-56.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-56">
+Past versions of “phased plots-56.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-56" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-56.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450753_E12&quot;
+[1] &quot;450753&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-57.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-57">
+Past versions of “phased plots-57.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-57" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-57.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450762_G11&quot;
+[1] &quot;450762&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-58.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-58">
+Past versions of “phased plots-58.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-58" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-58.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450763_F9&quot;
+[1] &quot;450763&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-59.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-59">
+Past versions of “phased plots-59.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-59" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-59.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450772_F11&quot;
+[1] &quot;450772&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-60.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-60">
+Past versions of “phased plots-60.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-60" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-60.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450774_G10&quot;
+[1] &quot;450774&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-61.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-61">
+Past versions of “phased plots-61.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-61" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-61.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450778_B8&quot;
+[1] &quot;450778&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-62.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-62">
+Past versions of “phased plots-62.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-62" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-62.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_450781_G12&quot;
+[1] &quot;450781&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-63.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-63">
+Past versions of “phased plots-63.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-63" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-63.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_450793_H2&quot;
+[1] &quot;450793&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-64.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-64">
+Past versions of “phased plots-64.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-64" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-64.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450794_F1&quot;
+[1] &quot;450794&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-65.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-65">
+Past versions of “phased plots-65.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-65" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-65.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450796_B7&quot;
+[1] &quot;450796&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-66.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-66">
+Past versions of “phased plots-66.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-66" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-66.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_450797_E1&quot;
+[1] &quot;450797&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-67.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-67">
+Past versions of “phased plots-67.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-67" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-67.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_450798_D8&quot;
+[1] &quot;450798&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-68.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-68">
+Past versions of “phased plots-68.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-68" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-68.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_451210_F9&quot;
+[1] &quot;451210&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-69.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-70.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-71.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-69">
+Past versions of “phased plots-69.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-69" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-69.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_451651_A2&quot;
+[1] &quot;451651&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-70.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-70">
+Past versions of “phased plots-70.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-70" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-70.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_452002_H3&quot;
+[1] &quot;452002&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-71.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-71">
+Past versions of “phased plots-71.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-71" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-71.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20190728_452003_A2&quot;
+[1] &quot;452003&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-72.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-73.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-74.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-75.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-76.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-77.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-78.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-79.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-80.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-81.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-82.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-83.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-84.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-85.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-86.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-87.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-88.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-89.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-90.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-91.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-92.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-93.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-13 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-72">
+Past versions of “phased plots-72.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-72" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-72.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_452008_E3&quot;
+[1] &quot;452008&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-73.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-73">
+Past versions of “phased plots-73.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-73" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-73.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_452010_B3&quot;
+[1] &quot;452010&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-74.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-74">
+Past versions of “phased plots-74.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-74" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-74.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_452044_C3&quot;
+[1] &quot;452044&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-75.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-75">
+Past versions of “phased plots-75.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-75" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-75.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_452046_E10&quot;
+[1] &quot;452046&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-76.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-76">
+Past versions of “phased plots-76.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-76" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-76.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_452076_F1&quot;
+[1] &quot;452076&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-77.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-77">
+Past versions of “phased plots-77.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-77" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-77.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191114_452077_B11&quot;
+[1] &quot;452077&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-78.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-78">
+Past versions of “phased plots-78.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-78" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-78.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_452089_A11&quot;
+[1] &quot;452089&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-79.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-79">
+Past versions of “phased plots-79.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-79" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-79.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_452090_C10&quot;
+[1] &quot;452090&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-80.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-80">
+Past versions of “phased plots-80.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-80" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-80.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_452093_H3&quot;
+[1] &quot;452093&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-81.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-81">
+Past versions of “phased plots-81.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-81" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-81.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_452095_E6&quot;
+[1] &quot;452095&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-82.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-82">
+Past versions of “phased plots-82.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-82" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-82.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_452121_B6&quot;
+[1] &quot;452121&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-83.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-83">
+Past versions of “phased plots-83.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-83" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-83.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_452122_B2&quot;
+[1] &quot;452122&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-84.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-84">
+Past versions of “phased plots-84.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-84" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-84.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453413_C11&quot;
+[1] &quot;453413&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-85.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-85">
+Past versions of “phased plots-85.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-85" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-85.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453414_E11&quot;
+[1] &quot;453414&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-86.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-86">
+Past versions of “phased plots-86.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-86" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-86.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453418_D6&quot;
+[1] &quot;453418&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-87.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-87">
+Past versions of “phased plots-87.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-87" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-87.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453419_E8&quot;
+[1] &quot;453419&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-88.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-88">
+Past versions of “phased plots-88.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-88" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-88.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453430_E4&quot;
+[1] &quot;453430&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-89.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-89">
+Past versions of “phased plots-89.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-89" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-89.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453434_D5&quot;
+[1] &quot;453434&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-90.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-90">
+Past versions of “phased plots-90.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-90" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-90.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191114_453440_E3&quot;
+[1] &quot;453440&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-91.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-91">
+Past versions of “phased plots-91.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-91" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-91.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453442_H9&quot;
+[1] &quot;453442&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-92.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-92">
+Past versions of “phased plots-92.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-92" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-92.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453454_D11&quot;
+[1] &quot;453454&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-93.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-93">
+Past versions of “phased plots-93.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-93" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-93.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_453455_D10&quot;
+[1] &quot;453455&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-94.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-94">
+Past versions of “phased plots-94.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-94" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-94.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453519_H10&quot;
+[1] &quot;453519&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-95.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-95">
+Past versions of “phased plots-95.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-95" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-95.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453520_C8&quot;
+[1] &quot;453520&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-96.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-96">
+Past versions of “phased plots-96.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-96" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-96.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453528_F5&quot;
+[1] &quot;453528&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-97.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-98.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-99.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-100.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-101.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-13 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-97">
+Past versions of “phased plots-97.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-97" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-97.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453530_H6&quot;
+[1] &quot;453530&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-98.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-98">
+Past versions of “phased plots-98.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-98" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-98.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453539_B1&quot;
+[1] &quot;453539&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-99.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-99">
+Past versions of “phased plots-99.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-99" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-99.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_453548_C1&quot;
+[1] &quot;453548&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-100.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-100">
+Past versions of “phased plots-100.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-100" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-100.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453550_B10&quot;
+[1] &quot;453550&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-101.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-101">
+Past versions of “phased plots-101.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-101" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-101.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453556_B11&quot;
+[1] &quot;453556&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-102.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-102">
+Past versions of “phased plots-102.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-102" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-102.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453558_D2&quot;
+[1] &quot;453558&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-103.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-104.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-105.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-103">
+Past versions of “phased plots-103.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-103" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-103.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453805_B5&quot;
+[1] &quot;453805&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-104.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-104">
+Past versions of “phased plots-104.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-104" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-104.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453808_C12&quot;
+[1] &quot;453808&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-105.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-105">
+Past versions of “phased plots-105.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-105" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-105.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453809_C3&quot;
+[1] &quot;453809&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-106.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-107.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-108.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-109.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-110.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-111.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-112.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-113.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-114.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-115.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-116.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-106">
+Past versions of “phased plots-106.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-106" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-106.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191114_453816_G3&quot;
+[1] &quot;453816&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-107.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-107">
+Past versions of “phased plots-107.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-107" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-107.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_453818_D4&quot;
+[1] &quot;453818&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-108.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-108">
+Past versions of “phased plots-108.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-108" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-108.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453822_H5&quot;
+[1] &quot;453822&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-109.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-109">
+Past versions of “phased plots-109.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-109" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-109.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453823_D6&quot;
+[1] &quot;453823&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-110.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-110">
+Past versions of “phased plots-110.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-110" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-110.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453830_H3&quot;
+[1] &quot;453830&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-111.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-111">
+Past versions of “phased plots-111.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-111" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-111.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453832_C6&quot;
+[1] &quot;453832&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-112.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-112">
+Past versions of “phased plots-112.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-112" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-112.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453845_H7&quot;
+[1] &quot;453845&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-113.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-113">
+Past versions of “phased plots-113.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-113" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-113.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_453849_A3&quot;
+[1] &quot;453849&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-114.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-114">
+Past versions of “phased plots-114.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-114" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-114.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453852_B1&quot;
+[1] &quot;453852&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-115.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-115">
+Past versions of “phased plots-115.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-115" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-115.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_453854_C4&quot;
+[1] &quot;453854&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-116.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-116">
+Past versions of “phased plots-116.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-116" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-116.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453969_F12&quot;
+[1] &quot;453969&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-117.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-14 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-117">
+Past versions of “phased plots-117.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-117" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-117.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453972_H2&quot;
+[1] &quot;453972&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-118.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-14 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-118">
+Past versions of “phased plots-118.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-118" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-118.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191114_453986_E1&quot;
+[1] &quot;453986&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-119.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-120.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-121.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-119">
+Past versions of “phased plots-119.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-119" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-119.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_453987_C5&quot;
+[1] &quot;453987&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-120.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-120">
+Past versions of “phased plots-120.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-120" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-120.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_453998_F6&quot;
+[1] &quot;453998&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-121.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-121">
+Past versions of “phased plots-121.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-121" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-121.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_454000_B9&quot;
+[1] &quot;454000&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-122.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-123.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-124.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-125.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-126.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-127.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-128.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-122">
+Past versions of “phased plots-122.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-122" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-122.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_454607_G7&quot;
+[1] &quot;454607&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-123.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-123">
+Past versions of “phased plots-123.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-123" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-123.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_454610_F4&quot;
+[1] &quot;454610&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-124.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-124">
+Past versions of “phased plots-124.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-124" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-124.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_454619_G1&quot;
+[1] &quot;454619&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-125.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-125">
+Past versions of “phased plots-125.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-125" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-125.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_454621_D9&quot;
+[1] &quot;454621&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-126.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-126">
+Past versions of “phased plots-126.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-126" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-126.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_454624_G3&quot;
+[1] &quot;454624&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-127.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-127">
+Past versions of “phased plots-127.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-127" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-127.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_454625_A10&quot;
+[1] &quot;454625&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-128.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-128">
+Past versions of “phased plots-128.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-128" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-128.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_454629_H8&quot;
+[1] &quot;454629&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-129.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-129">
+Past versions of “phased plots-129.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-129" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-129.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191107_454630_G11&quot;
+[1] &quot;454630&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-130.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-15 genotypes, you need to provide the vector of colors; recycling some</code></pre>
-<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-131.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-132.png" width="672" style="display: block; margin: auto;" /><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-133.png" width="672" style="display: block; margin: auto;" /></p>
-<pre><code>Warning in plot_onegeno_internal(geno, map, col = col, na_col = na_col, : With
-16 genotypes, you need to provide the vector of colors; recycling some</code></pre>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-130">
+Past versions of “phased plots-130.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-130" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-130.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191114_454639_A5&quot;
+[1] &quot;454639&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-131.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-131">
+Past versions of “phased plots-131.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-131" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-131.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_454640_E6&quot;
+[1] &quot;454640&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-132.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-132">
+Past versions of “phased plots-132.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-132" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-132.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_454685_E5&quot;
+[1] &quot;454685&quot;</code></pre>
+<p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-133.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-133">
+Past versions of “phased plots-133.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-133" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-133.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<pre><code>[1] &quot;Jackson_Lab_John_MURGIGV01_20191031_454686_C8&quot;
+[1] &quot;454686&quot;</code></pre>
 <p><img src="figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased%20plots-134.png" width="672" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-no-spaces-phased-plots-134">
+Past versions of “phased plots-134.png”
+</button>
+</p>
+<div id="fig-no-spaces-phased-plots-134" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/TheJacksonLaboratory/John-Tolman_Workflow/blob/3792d7b3394d9e30b081546301461b7edb6c151f/docs/figure/0.2_haplotype_comparison_bqc_d2.q105x.Rmd/phased plots-134.png" target="_blank">3792d7b</a>
+</td>
+<td>
+Belinda Cornes
+</td>
+<td>
+2020-11-14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
