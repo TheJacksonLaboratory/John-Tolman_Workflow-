@@ -1,0 +1,235 @@
+---
+title: "Phenotype QC [b6.q105x]"
+author: "Belinda Cornes"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+This script is to check the distribution of the data and to remove any outliers. Types of distribution:
+
++ normal [no correction]
++ positive skewness [possible correction: square root/logarithm]
++ negative skewness [possible correction: reflect & square root/reflect & logarithm]
++ positive kurtosis
++ negative kurtosis 
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(ggplot2)
+library(readxl)
+
+#filepathg = '/Users/corneb/Documents/MyJax/CS/Projects/Gould/data/Wave_1/11_29_2018/Univ_of_Georgia_Pazdro_MURGIGV01_20181129/'
+filepaths = '/Users/corneb/Documents/MyJax/CS/Projects/Simon.John.Tolman/haplo.reconst/2020-11-11/b6.q105x/all_samples_sorted/'
+filepathp = '/Users/corneb/Documents/MyJax/CS/Projects/Simon.John.Tolman/Data/meta.data/'
+
+#report_file <- dir(path = filepathg, pattern = "_FinalReport.zip$", full.names = TRUE)
+#sample.map_file <- dir(path = filepathg, pattern = "_Map.zip$", full.names = TRUE)
+sample_file <- dir(path = filepaths, pattern = "^DODB_*", full.names = TRUE)
+pheno_file_nick <- dir(path = filepathp, pattern = "*_pheno.csv+$", full.names = TRUE)
+pheno_file_qtl2 <- dir(path = paste0(filepaths, "qtl2/"), pattern = "pheno.csv", full.names = TRUE)
+
+#Phenotypes 
+pheno.pi <- read.csv(pheno_file_nick)
+pheno.qtl <- read.csv(pheno_file_qtl2)
+#pheno$indexp <- 1:nrow(pheno)
+
+#Samples
+master <- as.data.frame(read_excel("/Users/corneb/Documents/MyJax/CS/Projects/Simon.John.Tolman/Data/meta.data/inventory_file.xlsx", sheet = "inventory_file"))
+
+samples <- read.csv(sample_file)
+
+project <- read.csv("/Users/corneb/Documents/MyJax/CS/Projects/Simon.John.Tolman/haplo.reconst/2020-11-09/all.samples/all.samples/project_b6.q105x.csv", as.is=T)
+project$dir2 <- sapply(strsplit(project$dir,'/',fixed=T),function(x) x[7])
+
+#samples <- master[master$Strain=="J:DO;129SvEv-Lmx1b(V424D)",]
+inventory <- master[master$"Sample ID...4" %in% samples$Original.Mouse.ID,]
+invent.dir2 <- merge(inventory,project, by.x=c("Directory"), by.y=c("dir2"), all=T)
+#invent.dir2$Unique.Sample.ID <- paste0(invent.dir2$prefix,"_",invent.dir2$"Sample ID...4")
+
+invent.dodb <- merge(invent.dir2,samples, by.x=c("Directory","Sample ID...4"), by.y=c("Directory","Original.Mouse.ID"),all=T)
+#invent.dodb <- merge(invent.dir2,samples, by=c("Unique.Sample.ID"), all=T)
+#samples$indexs <- 1:nrow(samples)
+#samples$Mouse.ID <- gsub("*_","",samples$Unique.Sample.ID)
+#sample.map$Mouse.ID <- gsub("DO-","",sample.map$ID)
+
+#sammap <- merge(samples,sample.map, by=c("Mouse.ID"), all.y=T)
+samphen1 <- merge(invent.dodb,pheno.pi, by.x=c("Sample ID...5"), by.y=c("Mouse.ID"), all.x=T)
+samphen <- samphen1[c("Correct.Mouse.ID","Unique.Sample.ID","Unique Sample ID","Sample ID...4","Sample ID...5","Directory",
+                     "Sex.x","Sex.y","Sex","Inferred.Sex","Birth Date","DOB","DO Generation","DO.Mother.Generation","DO.Generation","Strain.x","Strain.y",
+                     "Lmx1b allele","Lmx1b.allele","Lmx1b Genotype","Lmx1b.Genotype","Parental.Strain.GigaMUGA.ID","Parental Strain GigaMUGA ID",
+                     "Run.Date","Geneseek.Sample.ID","Include","cr","Max_IOP")]
+
+phenos_cc <- subset(samphen, !is.na(Max_IOP))
+
+library(Hmisc)
+library(pastecs)
+library(psych)
+
+#setwd("/Users/corneb/Documents/MyJax/CS/Projects/qtl2/Univ_of_Penn_Thaiss/Thaiss/three.batches/Thaiss_workflowr_old/data/heh/")
+
+```
+
+### Phenotype : Max_IOP
+```{r plot sample distribution for Max_IOP}
+
+iop <- ggplot(data= phenos_cc, aes(x=phenos_cc$Max_IOP)) + 
+geom_histogram(aes(y=..density..), fill="grey", color="white", position="identity") + 
+geom_vline(xintercept=mean(phenos_cc$Max_IOP),size = 1, col="red") + 
+labs(x="Max_IOP") + 
+stat_function(fun = dnorm, color="blue", size=1, args=list(mean=mean(phenos_cc$Max_IOP), sd=sd(phenos_cc$Max_IOP))) +
+ggtitle("Distribution of Max_IOP") +
+theme(plot.title = element_text(hjust = 0.5))
+
+iop
+
+Hmisc::describe(samphen$Max_IOP) 
+pastecs::stat.desc(samphen$Max_IOP) 
+psych::describe(samphen$Max_IOP) 
+
+```
+Given the positive skewness of the data, the intent is to transform by square root/log, then check the skewness
+
+### Transforming Data
+#### Natural Log Transform
+```{r transforming ln Max_IOP}
+
+phenos_cc$ln.Max_IOP <- log(phenos_cc$Max_IOP)
+
+lniop <- ggplot(data= phenos_cc, aes(x=phenos_cc$ln.Max_IOP)) + 
+geom_histogram(aes(y=..density..), fill="grey", color="white", position="identity") + 
+geom_vline(xintercept=mean(phenos_cc$ln.Max_IOP),size = 1, col="red") + 
+labs(x="ln Max_IOP") + 
+stat_function(fun = dnorm, color="blue", size=1, args=list(mean=median(phenos_cc$ln.Max_IOP), sd=sd(phenos_cc$ln.Max_IOP))) +
+ggtitle("Distribution of ln Max_IOP") +
+theme(plot.title = element_text(hjust = 0.5))
+
+lniop
+
+Hmisc::describe(phenos_cc$ln.Max_IOP)  
+pastecs::stat.desc(phenos_cc$ln.Max_IOP) 
+psych::describe(phenos_cc$ln.Max_IOP) 
+
+````
+
+#### Log Transform
+```{r transforming log Max_IOP}
+
+phenos_cc$log.Max_IOP <- log10(phenos_cc$Max_IOP)
+
+logiop <- ggplot(data= phenos_cc, aes(x=phenos_cc$log.Max_IOP)) + 
+geom_histogram(aes(y=..density..), fill="grey", color="white", position="identity") + 
+geom_vline(xintercept=mean(phenos_cc$log.Max_IOP),size = 1, col="red") + 
+labs(x="log Max_IOP") + 
+stat_function(fun = dnorm, color="blue", size=1, args=list(mean=median(phenos_cc$log.Max_IOP), sd=sd(phenos_cc$log.Max_IOP))) +
+ggtitle("Distribution of log Max_IOP") +
+theme(plot.title = element_text(hjust = 0.5))
+
+logiop
+
+Hmisc::describe(phenos_cc$log.Max_IOP)  
+pastecs::stat.desc(phenos_cc$log.Max_IOP) 
+psych::describe(phenos_cc$log.Max_IOP) 
+
+````
+ 
+#### Sqrt Transform
+```{r transforming sqrt Max_IOP}
+
+phenos_cc$sqrt.Max_IOP <- sqrt(phenos_cc$Max_IOP)
+
+sqrtiop <- ggplot(data= phenos_cc, aes(x=phenos_cc$sqrt.Max_IOP)) + 
+geom_histogram(aes(y=..density..), fill="grey", color="white", position="identity") + 
+geom_vline(xintercept=mean(phenos_cc$sqrt.Max_IOP),size = 1, col="red") + 
+labs(x="sqrt Max_IOP") + 
+stat_function(fun = dnorm, color="blue", size=1, args=list(mean=median(phenos_cc$sqrt.Max_IOP), sd=sd(phenos_cc$sqrt.Max_IOP))) +
+ggtitle("Distribution of sqrt Max_IOP") +
+theme(plot.title = element_text(hjust = 0.5))
+
+sqrtiop
+
+Hmisc::describe(phenos_cc$sqrt.Max_IOP)  
+pastecs::stat.desc(phenos_cc$sqrt.Max_IOP) 
+psych::describe(phenos_cc$sqrt.Max_IOP) 
+
+````
+
+Now that the transformation improved the fit of the data, we will check for any outliers
+
+### Outliers
+#### Natural Log Transform
+```{r checking outliers ln.Max_IOP}
+
+lower_bound <- median(phenos_cc$ln.Max_IOP, na.rm=T) - 3 * mad(phenos_cc$ln.Max_IOP, na.rm=T)
+print(paste0("lower bound: ",lower_bound))
+
+upper_bound <- median(phenos_cc$ln.Max_IOP, na.rm=T) + 3 * mad(phenos_cc$ln.Max_IOP, na.rm=T)
+print(paste0("upper bound: ", upper_bound))
+
+outlier_ind <- subset(phenos_cc,(phenos_cc$ln.Max_IOP < lower_bound | phenos_cc$ln.Max_IOP > upper_bound))
+print(paste0("number of outliers: ", nrow(outlier_ind)))
+
+phenos_cc$ln.Max_IOP_out <- ifelse(phenos_cc$ln.Max_IOP < lower_bound  | phenos_cc$ln.Max_IOP > upper_bound, 'Outlier','Keep')
+table(phenos_cc$ln.Max_IOP_out)
+
+
+```
+
+#### Log Transform
+```{r checking outliers log.Max_IOP}
+
+lower_bound <- median(phenos_cc$log.Max_IOP, na.rm=T) - 3 * mad(phenos_cc$log.Max_IOP, na.rm=T)
+print(paste0("lower bound: ",lower_bound))
+
+upper_bound <- median(phenos_cc$log.Max_IOP, na.rm=T) + 3 * mad(phenos_cc$log.Max_IOP, na.rm=T)
+print(paste0("upper bound: ", upper_bound))
+
+outlier_ind <- subset(phenos_cc,(phenos_cc$log.Max_IOP < lower_bound | phenos_cc$log.Max_IOP > upper_bound))
+print(paste0("number of outliers: ", nrow(outlier_ind)))
+
+phenos_cc$log.Max_IOP_out <- ifelse(phenos_cc$log.Max_IOP < lower_bound  | phenos_cc$log.Max_IOP > upper_bound, 'Outlier','Keep')
+table(phenos_cc$log.Max_IOP_out)
+
+```
+
+#### Sqrt Transform
+```{r checking outliers sqrt.Max_IOP}
+
+lower_bound <- median(phenos_cc$sqrt.Max_IOP, na.rm=T) - 3 * mad(phenos_cc$sqrt.Max_IOP, na.rm=T)
+print(paste0("lower bound: ",lower_bound))
+
+upper_bound <- median(phenos_cc$sqrt.Max_IOP, na.rm=T) + 3 * mad(phenos_cc$sqrt.Max_IOP, na.rm=T)
+print(paste0("upper bound: ", upper_bound))
+
+outlier_ind <- subset(phenos_cc,(phenos_cc$sqrt.Max_IOP < lower_bound | phenos_cc$sqrt.Max_IOP > upper_bound))
+print(paste0("number of outliers: ", nrow(outlier_ind)))
+
+phenos_cc$sqrt.Max_IOP_out <- ifelse(phenos_cc$sqrt.Max_IOP < lower_bound  | phenos_cc$sqrt.Max_IOP > upper_bound, 'Outlier','Keep')
+table(phenos_cc$sqrt.Max_IOP_out)
+
+```
+
+
+### Conclusion
+
++ `Max_IOP` was transformed using both sqrt and log/ln - will choose ln going forward as it offered the best correction for the skewness
+
+
+### All Problematic Samples
+```{r saving new pheno file}
+
+phenos_cc_out <- phenos_cc[phenos_cc$ln.Max_IOP_out == "Keep",]
+phenosn_cc <- phenos_cc_out[c("Sample ID...5","Geneseek.Sample.ID","Unique.Sample.ID","Max_IOP","ln.Max_IOP")]
+names(phenosn_cc)[1] <- c("Original.Mouse.ID")
+#phenos$index <- 1:nrow(phenos)
+
+#phenosn <- merge(phenosn_cc, phenos[c("Mouse.ID","index")], by=c("Mouse.ID"), all=T)
+
+#names(phenosn_cc)[2:5] <- c("Time_min","Distance_m","Energy_J","rsqrt_Time_min")
+#phenosn[is.na(phenosn)] <- ''
+
+#phenosno <- phenosn[order(phenosn$index),]
+
+write.csv(phenosn_cc, paste0(filepaths,"pheno_no.outliers_b6.q105x.csv"), row.names=F, quote=F)
+```

@@ -1,0 +1,270 @@
+---
+title: "b6.q105x Samples"
+author: "Belinda Cornes"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,warning=FALSE)
+
+library("kableExtra")
+library("knitr")
+options(stringsAsFactors = FALSE)
+library(data.table) 
+library(tidyr)     
+library(mclust)     
+library(rhdf5)      
+library(optparse)
+library(dplyr)
+library(cluster)
+library(readxl)
+library(tibble)
+
+
+#filepathg = '/Users/corneb/Documents/MyJax/CS/Projects/Gould/data/Wave_1/11_29_2018/Univ_of_Georgia_Pazdro_MURGIGV01_20181129/'
+filepaths = '/Users/corneb/Documents/MyJax/CS/Projects/Simon.John.Tolman/haplo.reconst/2020-11-11/b6.q105x/all_samples_sorted/'
+filepathp = '/Users/corneb/Documents/MyJax/CS/Projects/Simon.John.Tolman/Data/meta.data/'
+
+#report_file <- dir(path = filepathg, pattern = "_FinalReport.zip$", full.names = TRUE)
+#sample.map_file <- dir(path = filepathg, pattern = "_Map.zip$", full.names = TRUE)
+sample_file <- dir(path = filepaths, pattern = "^DODB_*", full.names = TRUE)
+pheno_file_nick <- dir(path = filepathp, pattern = "*_pheno.csv+$", full.names = TRUE)
+pheno_file_qtl2 <- dir(path = paste0(filepaths, "qtl2/"), pattern = "pheno.csv", full.names = TRUE)
+geno_file <- dir(path = paste0(filepaths, "qtl2/"), pattern = "sample_geno_sorted.csv", full.names = TRUE)
+hdf5_filename <- dir(path = filepaths, pattern = "^hdf5_*", full.names = TRUE)
+
+
+#report_file_hdr <- unlist(strsplit(report_file, split = "/"))
+#report_file_hdr <- report_file_hdr[length(report_file_hdr)]
+
+#header <- read.table(unz(report_file, sub(pattern = "zip$", replacement = "txt", report_file_hdr)), 
+#                      sep = "\t", skip = 1, nrows = 2)
+#report <- fread(paste("unzip -cq", report_file),
+#                 skip = 9, showProgress = TRUE, sep = "\t")
+#sample.map <- as.data.frame(fread(paste0("unzip -cq ",  sample.map_file)))
+#colnames(report) <- gsub(" |-", "_", colnames(report))
+
+#geno <- report %>%
+#    select(Sample_ID, SNP_Name, Allele1___Forward, Allele2___Forward) %>%
+#    mutate(Sample_ID = factor(Sample_ID, levels = unique(report$Sample_ID))) %>%
+#    unite(genotype, c("Allele1___Forward", "Allele2___Forward"), sep = "") %>%
+#    spread(Sample_ID, genotype)
+ 
+#Phenotypes 
+pheno.pi <- read.csv(pheno_file_nick)
+pheno.qtl <- read.csv(pheno_file_qtl2)
+#pheno$indexp <- 1:nrow(pheno)
+
+#Samples
+master <- as.data.frame(read_excel("/Users/corneb/Documents/MyJax/CS/Projects/Simon.John.Tolman/Data/meta.data/inventory_file.xlsx", sheet = "inventory_file"))
+
+samples <- read.csv(sample_file)
+
+project <- read.csv("/Users/corneb/Documents/MyJax/CS/Projects/Simon.John.Tolman/haplo.reconst/2020-11-09/all.samples/all.samples/project_b6.q105x.csv", as.is=T)
+project$dir2 <- sapply(strsplit(project$dir,'/',fixed=T),function(x) x[7])
+
+#samples <- master[master$Strain=="J:DO;129SvEv-Lmx1b(V424D)",]
+inventory <- master[master$"Sample ID...4" %in% samples$Original.Mouse.ID,]
+invent.dir2 <- merge(inventory,project, by.x=c("Directory"), by.y=c("dir2"), all=T)
+#invent.dir2$Unique.Sample.ID <- paste0(invent.dir2$prefix,"_",invent.dir2$"Sample ID...4")
+
+invent.dodb <- merge(invent.dir2,samples, by.x=c("Directory","Sample ID...4"), by.y=c("Directory","Original.Mouse.ID"),all=T)
+#samples$indexs <- 1:nrow(samples)
+#samples$Mouse.ID <- gsub("*_","",samples$Unique.Sample.ID)
+#sample.map$Mouse.ID <- gsub("DO-","",sample.map$ID)
+
+#sammap <- merge(samples,sample.map, by=c("Mouse.ID"), all.y=T)
+samphen1 <- merge(invent.dodb,pheno.pi, by.x=c("Sample ID...5"), by.y=c("Mouse.ID"), all.x=T)
+samphen <- samphen1[c("Correct.Mouse.ID","Unique.Sample.ID","Unique Sample ID","Sample ID...4","Sample ID...5","Directory",
+                     "Sex.x","Sex.y","Sex","Inferred.Sex","Birth Date","DOB","DO Generation","DO.Mother.Generation","DO.Generation","Strain.x","Strain.y",
+                     "Lmx1b allele","Lmx1b.allele","Lmx1b Genotype","Lmx1b.Genotype","Parental.Strain.GigaMUGA.ID","Parental Strain GigaMUGA ID",
+                     "Run.Date","Geneseek.Sample.ID","Include","cr","Max_IOP")]
+
+#genotypes
+h5_info <- rhdf5::h5ls(hdf5_filename)
+  h5_info <- h5_info[h5_info$group == "/G",]
+  h5_info <- h5_info[order(as.numeric(h5_info$name)),]
+  num_samples <- strsplit(h5_info$dim, " x ")  ##num of samples per project
+  n=length(num_samples)
+  num_rows <- as.numeric(num_samples[[1]][1])
+  num_samples <- c(0, as.numeric(sapply(num_samples, "[", 2)))  
+  rn <- rhdf5::h5read(hdf5_filename, "rownames/1")
+  geno <- matrix("", nrow = num_rows, ncol = sum(num_samples),
+                dimnames = list(rn, rep("", sum(num_samples))))
+  for(i in 1:n) {
+    G  <- rhdf5::h5read(hdf5_filename, paste0("G/", i))
+    cn <- rhdf5::h5read(hdf5_filename, paste0("colnames/", i))
+    colnames(G) <- cn
+    rng  <- (sum(num_samples[1:i]) + 1):sum(num_samples[1:(i+1)])
+    geno[,rng] <- G
+    colnames(geno)[rng] <- colnames(G)
+  } 
+
+genos <- as.data.frame(geno)
+#geno$marker <- rownames(geno)
+#genon <- geno[c(1:(length(geno)))]
+genon1 <- as.data.frame(genos)
+#genon<-genon[ ,samples$Original.Mouse.ID]
+#geno <- geno[ ,sample_inventory$Original.Mouse.ID]
+idx2 <- intersect(colnames(genon1), samples$Unique.Sample.ID)
+genon <- genon1[ ,colnames(genon1) %in% idx2, drop=FALSE]
+#colnames(genon) <- samples$Unique.Sample.ID
+
+summaryInfo <- list()
+for(i in (1:length(genon))){
+#for(i in 2){
+  #i=1
+  
+  tot <- as.data.frame(t(table(genon[,i])))
+  cn <- tot[c(2)]
+  cn <- as.character(cn$Var2)
+  tot <- t(tot[c(2:3)])
+  tot <- as.data.frame(tot)
+  names(tot) <- cn
+  tot <- tot[-1,]
+  names(tot)[1] <- c("Missing")
+  rownames(tot) <- 1:nrow(tot)
+  cols <- c(0,0,0,0,0,0,0,0,0,0,0,0,0)
+  names(cols) <- c("Missing","AA","AC","AG","AT","CC","CG","GC","GG","TA","TC","TG","TT")
+  totn <- add_column(tot, !!!cols[setdiff(names(cols), names(tot))])
+  total <- data.frame(colSums(genon[i] != "--"))
+  names(total) <- c("Total_Genotyped")
+  sample <- data.frame(paste(names(genon[i])))
+  names(sample) <- c("Mouse.ID")
+  totall <- cbind(sample,totn,total)
+  totall$Percent_Genotyped <- paste0(format(100*(round((total[1]/nrow(genon)), digits = 4)), nsmall = 2),"%")
+  totall$MURGIGV01_SNP.Count <- as.numeric(as.character(totall$Missing)) + as.numeric(totall$Total_Genotyped)
+
+  #sample Information
+  totphensam <- merge(totall, samphen, by.x=c("Mouse.ID"), by.y=c("Unique.Sample.ID"))  
+  totphensam$Original.Sample.ID <- totphensam$'Sample ID...5'
+    
+  finalsum <- cbind(totphensam[c("Original.Sample.ID","Geneseek.Sample.ID","Mouse.ID")],
+                   totphensam[c("Missing","AA","AC","AG","AT","CC","CG","GC","GG","TA","TC","TG","TT")],
+                   totphensam[c('Total_Genotyped',"Percent_Genotyped","MURGIGV01_SNP.Count","Sex.x","Sex.y","Sex","Inferred.Sex","DO Generation","DO.Mother.Generation","DO.Generation",
+                                 "Directory","DOB","Run.Date","Lmx1b allele","Lmx1b.allele","Lmx1b Genotype","Lmx1b.Genotype","Parental.Strain.GigaMUGA.ID","Parental Strain GigaMUGA ID","cr","Include","Max_IOP")])
+
+  #names(finalsum)[19:20] <- c("Sex_Geno", "Sex_Pheno")
+  names(finalsum)[1] <- c("Original.Mouse.ID")
+  #finalsum$Sex_Pheno <- replace(finalsum$Sex_Geno, finalsum$Sex_Pheno == '', '--')
+  #finalsum$Sex_Geno <- replace(finalsum$Sex_Geno, finalsum$Sex_Geno == '', '--')
+  summaryInfo[[i]] <- finalsum
+}
+
+summary <- do.call(rbind, summaryInfo)
+
+#summary$Sex_Pheno <- replace(summary$Sex_Pheno, summary$Sex_Pheno == '', '--')
+#summary$Sex_Geno <- replace(summary$Sex_Geno, summary$Sex_Geno == '', '--')
+summary[is.na(summary)] <- '--'
+#summary <- summary[order(summary$indexp),]
+#names(summary)[21] <- c("DO.Generation")
+
+which(summary$cr <.90)
+#[1]  14  38  77  78 116 122 130 132 135
+which(summary$Sex != summary$Inferred.Sex)
+#14  48  75  77  78  94 119 130
+
+```
+
+### Genotype Summary by Sample
+```{r plot table genotype summary}
+
+rownames(summary) <- NULL
+
+summary[c(1:19,36)] %>%
+  kable(escape = F,align = c("ccccccccccccccccc"),linesep ="\\hline") %>%
+  kable_styling("striped", full_width = T) %>%
+  column_spec(3:15, width = "5cms") %>%
+  row_spec(14,color= "white",background = "red") %>%
+  row_spec(38,color= "white",background = "red") %>%
+  row_spec(77,color= "white",background = "red") %>%
+  row_spec(78,color= "white",background = "red") %>%
+  row_spec(116,color= "white",background = "red") %>%
+  row_spec(122,color= "white",background = "red") %>%
+  row_spec(130,color= "white",background = "red") %>%
+  row_spec(132,color= "white",background = "red") %>%
+  row_spec(135,color= "white",background = "red")
+
+
+```
+
+### Gender Summary by Sample
+```{r plot table gender summary}
+
+summary[c(1:3,22:23,25:26,29:30)] %>%
+  kable(escape = F,align = c("ccccccccc"),linesep ="\\hline") %>%
+  kable_styling(full_width = F) %>%
+  kable_styling("striped", full_width = F) %>%
+  column_spec(1:8, width = "3cm") %>%
+  row_spec(14 ,color= "white",background = "blue")  %>%
+  row_spec(48 ,color= "white",background = "blue")  %>%
+  row_spec(75 ,color= "white",background = "blue")  %>%
+  row_spec(77 ,color= "white",background = "blue")  %>%
+  row_spec(78 ,color= "white",background = "blue")  %>%
+  row_spec(94 ,color= "white",background = "blue")  %>%
+  row_spec(119 ,color= "white",background = "blue")  %>%
+  row_spec(130 ,color= "white",background = "blue")  #%>%
+
+```
+
+### Phenotype Summary by Sample
+```{r plot table phenotype summary}
+
+summary[c(1:3,31,33,34,38)] %>%
+  kable(escape = F,align = c("ccccccccc"),linesep ="\\hline") %>%
+  kable_styling(full_width = F) %>%
+  kable_styling("striped", full_width = F) %>%
+  column_spec(1:7, width = "3cm") #%>%
+  #row_spec(197 ,color= "white",background = "green")
+
+```
+
+
+### All Problematic Samples
+```{r plot table all problematic samples}
+
+dis <- NULL
+dis$Original.Mouse.ID <- summary$Original.Mouse.ID
+dis$Geneseek.Sample.ID <- summary$Geneseek.Sample.ID
+dis$Mouse.ID <- summary$Mouse.ID
+dis$no_pheno <- ifelse(summary$Max_IOP == '--', 'XX', '')
+dis$low_call.rate <- ifelse(summary$cr <.90, 'XX', '')
+dis$different_sex <- ifelse(summary$Sex != summary$Inferred.Sex, 'XX', '')
+
+dis <- data.frame(dis)
+disind <- subset(dis, dis$different_sex =="XX" | dis$low_call.rate == 'XX' | dis$no_pheno == 'XX')
+
+#disind[] %>% 
+#   mutate(
+#     possible_duplicate = ifelse(possible_duplicate == 'XX',
+#                  cell_spec(possible_duplicate, color = 'orange',background = 'orange'),
+#                  ''),
+#     low_call.rate = ifelse(low_call.rate == 'XX',
+#                  cell_spec(low_call.rate, color = 'red',background = 'red'),
+#                  ''),
+#     different_sex = ifelse(different_sex == 'XX',
+#                  cell_spec(different_sex, color = 'blue',background = 'blue'),
+#                  '')
+#     ) %>%
+#   kable(escape = F,align = c("cccc"),linesep ="\\hline") %>%
+#   kable_styling("striped", full_width = F) %>%
+#   column_spec(1:5, width = "3cm") 
+
+disind[] %>% 
+   mutate(
+     no_pheno = ifelse(no_pheno == 'XX',
+                  cell_spec(no_pheno, color = 'green',background = 'green'),
+                  ''),
+     low_call.rate = ifelse(low_call.rate == 'XX',
+                  cell_spec(low_call.rate, color = 'red',background = 'red'),
+                  ''),
+     different_sex = ifelse(different_sex == 'XX',
+                  cell_spec(different_sex, color = 'blue',background = 'blue'),
+                  ''),
+     ) %>%
+   kable(escape = F,align = c("ccccc"),linesep ="\\hline") %>%
+   kable_styling("striped", full_width = F) %>%
+   column_spec(1:5, width = "3cm") 
+
+```
