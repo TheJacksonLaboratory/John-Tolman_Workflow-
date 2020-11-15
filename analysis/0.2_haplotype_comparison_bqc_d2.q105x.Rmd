@@ -56,7 +56,7 @@ for(i in mice){
 	ph <- guess_phase(gmi, m)
 
 	# plot phased genotypes
-	plot_onegeno(ph, gmi$gmap, main = paste0(mouse.id, "/", i," [genoprobs]"),  shift=TRUE)
+	plot_onegeno(ph, gmi$gmap, main = paste0(i," [genoprobs]"),  shift=TRUE)
 }
 
 ```
