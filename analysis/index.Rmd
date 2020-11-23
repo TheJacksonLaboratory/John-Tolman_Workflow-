@@ -24,7 +24,6 @@ output:
 	+ [b6.q105x](0.2_haplotype_comparison_bqc_b6.q105x.html)
 	+ [d2.q105x](0.2_haplotype_comparison_bqc_d2.q105x.html)
 	+ [129Sj.v265d](0.2_haplotype_comparison_bqc_129Sj.v265d.html)
-	+ [all samples](0.2_haplotype_comparison_bqc_all.samples.html)
 
 ### 1. Phenotype QC
 * Phenotypes - Max_IOP
