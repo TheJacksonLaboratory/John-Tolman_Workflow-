@@ -66,7 +66,7 @@ output:
 		+ [b6.q105x](2.2.1_snp_qc_b6.q105x_aqc.html)
 		+ [d2.q105x](2.2.1_snp_qc_d2.q105x_aqc.html)
 		+ [129Sj.v265d](2.2.1_snp_qc_129Sj.v265d_aqc.html)
-		+ [all samples](2.2.1_snp_qc_all.samples_aqc.html)
+		+ [all samples]()
 * Step 3: Effect of Data Cleaning
 	+ Before QC
 		+ [b6.v265d](2.3.1_afterqc_b6.v265d.html)
@@ -79,7 +79,7 @@ output:
 		+ [b6.q105x](2.3.1_afterqc_b6.q105x_aqc.html)
 		+ [d2.q105x](2.3.1_afterqc_d2.q105x_aqc.html)
 		+ [129Sj.v265d](2.3.1_afterqc_129Sj.v265d_aqc.html)
-		+ [all samples](2.3.1_afterqc_all.samples_aqc.html)
+		+ [all samples]()
 * Step 4: Preparing Files for QTL Analysis
 	+ [After Correcting For Problematic Samples](2.4.1_preparing_files_qtl2.html)
 
@@ -91,3 +91,7 @@ output:
 * Step 4: QTL Permutation (`R/qtl2`)
 * Step 5: QTL Best Linear Unbiased Prediction (BLUP) (`R/qtl2`)
 * Step 6: Results from `R/qtl2` analysis [Raw Data]
+	+ All variants included
+		+ [max IOP](3.6_plot_qtl_mapping_max_IOP_sorted.html)
+		+ [max corneal haze](3.6_plot_qtl_mapping_max_corneal_haze_sorted.html)
+		+ [Pupil_not_round_binary](3.6_plot_qtl_mapping_Pupil_not_round_binary_sorted.html)

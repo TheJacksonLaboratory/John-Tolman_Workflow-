@@ -1,0 +1,596 @@
+---
+title: "Results from `R/qtl2` Analayis (Plots) - max corneal haze"
+author: "Belinda Cornes"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+name.phenocsv = "DO-Lmx1b"
+setwd("/Users/corneb/Documents/MyJax/CS/Projects/Simon.John.Tolman/workflowr/John-Toleman_workflow//")
+
+pheno <- read.csv("/Users/corneb/Documents/MyJax/CS/Projects/Simon.John.Tolman/Data/meta.data/DO-Lmx1b_pheno.covar.csv")
+
+library(qtl2)
+library(ggplot2)
+
+#map files
+gmap.file = qtl2::read_csv("data/combined/genetic_map_sorted.csv")
+pmap.file = qtl2::read_csv("data/combined/physical_map_sorted.csv")
+
+#This calls reorder_map_table() and the code for that is:
+reorder_map_table <- function (map_tab, chr_col = 1, pos_col = 2, chr_names = NULL)
+{
+  chr <- map_tab[, chr_col]
+  if (is.null(chr_names))
+    chr_names <- unique(chr)
+  chr <- factor(chr, levels = chr_names)
+  pos <- suppressWarnings(as.numeric(map_tab[, pos_col]))
+  map_tab[order(chr, pos, seq_len(nrow(map_tab))), , drop = FALSE]
+}
+
+split_map <- function (map, chr_names = NULL)
+{
+  map <- reorder_map_table(map, chr_names = chr_names)
+  pos <- as.numeric(map[, 2])
+  chr <- map[, 1]
+  uchr <- unique(chr)
+  names(pos) <- rownames(map)
+  lapply(split(pos, factor(chr, uchr)), sort)
+}
+
+gmap <- split_map(gmap.file)
+pmap <- split_map(pmap.file)
+
+
+```
+
+This script will plot the qtl mapping results.
+
+```{r phenotype, message=FALSE}
+
+i = names(pheno)[14]
+i
+
+
+```
+
+### Plot Scan Results: m1 (Sex + Generation)
+```{r plot scan result for m1, fig.height=10, fig.width=17, eval=TRUE}
+
+print("Covariates: Sex & Generation (m1)")
+load(paste0("output/qtl.mapping_sorted/m1_sex.generation_",name.phenocsv,"_sorted.RData"))
+
+##############################################
+## permutation results
+##############################################
+#The default is to return the 5% significance thresholds. Thresholds for other (or for multiple) significance levels can be obtained via the alpha argument.
+
+#for(i in names(m1.qtl.out)){
+#for(i in phenotypes){
+#operm <- get(load(paste0("output/permu_sorted/m1_sex.generation_nperm.1000_",name.phenocsv,"_", i,"_sorted.RData")))
+#cutoff = summary(operm, alpha = c(0.2, 0.1, 0.05, 0.01))
+
+##############################################
+## Genome wide results
+##############################################
+#pdf(file = paste0("output/figures_sorted/m1_sex.generation_",name.phenocsv,"_", i,"_genomescan_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+ymx <- maxlod(m1.qtl.out[[i]]) # overall maximum LOD score
+plot(m1.qtl.out[[i]], 
+  gmap, 
+  lodcolumn=1,
+  col="slateblue", 
+  ylim=c(0, ymx*1.3),
+  main=paste0("Genomescan (sex & generation) (scan1): ", i))
+#  abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2) 
+#dev.off()
+
+#pdf(file = paste0("output/figures_sorted/m1_sex.generation_",name.phenocsv,"_", i,"_gwas_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+plot(m1.gwas[[i]]$lod, 
+     m1.gwas[[i]]$snpinfo, 
+     altcol="green4", 
+     gap=0, 
+     main = paste0("GWAS (sex & generation) (scan1snps): ",i))
+#     abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2)
+#dev.off()
+
+##############################################
+## QTL Results
+##############################################
+
+#load blup results
+load(paste0("output/blup_sorted/m1_sex.generation_blup_",name.phenocsv,"_",i,"_sorted.RData"))
+
+#coeffects plot
+#pdf(file = paste0("output/figures_sorted/m1_sex.generation_",name.phenocsv,"_",i,"_coeff_geneplot_sorted.pdf"), width = 14)
+#for(i in names(m1.qtl.out)){
+  chr <- as.character(m1.peak[[i]][m1.peak[[i]]$lodcolumn == i,"chr"])
+  par(mar=c(4.1, 4.1, 1.6, 1.6))
+  plot_coefCC(m1.coef[[i]], 
+              gmap[chr], 
+              scan1_output=m1.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex & generation) (scan1coef): ",i)
+              )
+  plot_coefCC(m1.blup[[i]], 
+              gmap[chr], 
+              scan1_output=m1.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex & generation) [blup values] (scan1blup): ",i)
+              )
+  plot(m1.snps[[i]]$lod, 
+       m1.snps[[i]]$snpinfo, 
+       drop_hilit=1.5, 
+       genes=m1.genes[[i]],
+       main = paste0("SNP Association Mapping (sex & generation) (scan1snps): ",i))
+  
+#}
+#dev.off()
+#}
+
+```
+
+### Plot Scan Results: m2 (Sex)
+```{r plot scan result for m2,fig.height=10, fig.width=17, eval=TRUE}
+
+print("Covariates: Sex (m2)")
+load(paste0("output/qtl.mapping_sorted/m2_sex_",name.phenocsv,"_sorted.RData"))
+
+##############################################
+## permutation results
+##############################################
+#The default is to return the 5% significance thresholds. Thresholds for other (or for multiple) significance levels can be obtained via the alpha argument.
+
+#for(i in names(m2.qtl.out)){
+#for(i in phenotypes){
+#operm <- get(load(paste0("output/permu_sorted/m2_sex_nperm.1000_",name.phenocsv,"_", i,"_sorted.RData")))
+#cutoff = summary(operm, alpha = c(0.2, 0.1, 0.05, 0.01))
+
+##############################################
+## Genome wide results
+##############################################
+#pdf(file = paste0("output/figures_sorted/m2_sex_",name.phenocsv,"_", i,"_genomescan_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+ymx <- maxlod(m2.qtl.out[[i]]) # overall maximum LOD score
+plot(m2.qtl.out[[i]], 
+  gmap, 
+  lodcolumn=1,
+  col="slateblue", 
+  ylim=c(0, ymx*1.3),
+  main=paste0("Genomescan (sex) (scan1): ", i))
+# abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2) 
+#dev.off()
+
+#pdf(file = paste0("output/figures_sorted/m2_sex_",name.phenocsv,"_", i,"_gwas_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+plot(m2.gwas[[i]]$lod, 
+     m2.gwas[[i]]$snpinfo, 
+     altcol="green4", 
+     gap=0, 
+     main = paste0("GWAS (sex) (scan1snps): ",i))
+#     abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2)
+#dev.off()
+
+##############################################
+## QTL Results
+##############################################
+
+#load blup results
+load(paste0("output/blup_sorted/m2_sex_blup_",name.phenocsv,"_",i,"_sorted.RData"))
+
+#coeffects plot
+#pdf(file = paste0("output/figures_sorted/m2_sex_",name.phenocsv,"_",i,"_coeff_geneplot_sorted.pdf"), width = 14)
+#for(i in names(m2.qtl.out)){
+  chr <- as.character(m2.peak[[i]][m2.peak[[i]]$lodcolumn == i,"chr"])
+  par(mar=c(4.1, 4.1, 1.6, 1.6))
+  plot_coefCC(m2.coef[[i]], 
+              gmap[chr], 
+              scan1_output=m2.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex) (scan1coef): ",i)
+              )
+  plot_coefCC(m2.blup[[i]], 
+              gmap[chr], 
+              scan1_output=m2.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex) [blup values] (scan1blup): ",i)
+              )
+  plot(m2.snps[[i]]$lod, 
+       m2.snps[[i]]$snpinfo, 
+       drop_hilit=1.5, 
+       genes=m2.genes[[i]],
+       main = paste0("SNP Association Mapping (sex) (scan1snps): ",i))
+  
+#}
+#dev.off()
+#}
+
+```
+
+### Plot Scan Results: m3 (Sex and intcovar)
+```{r plot scan result for m3 , fig.height=10, fig.width=17, eval=TRUE}
+
+print("Covariates: Sex and Intcovar (m3)")
+load(paste0("output/qtl.mapping_sorted/m3_sex.intcovar_",name.phenocsv,"_sorted.RData"))
+
+##############################################
+## permutation results
+##############################################
+#The default is to return the 5% significance thresholds. Thresholds for other (or for multiple) significance levels can be obtained via the alpha argument.
+
+#for(i in names(m3.qtl.out)){
+#for(i in phenotypes){
+#operm <- get(load(paste0("output/permu_sorted/m3_sex.intcovar_nperm.1000_",name.phenocsv,"_", i,"_sorted.RData")))
+#cutoff = summary(operm, alpha = c(0.2, 0.1, 0.05, 0.01))
+
+##############################################
+## Genome wide results
+##############################################
+#pdf(file = paste0("output/figures_sorted/m3_sex.intcovar_",name.phenocsv,"_", i,"_genomescan_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+ymx <- maxlod(m3.qtl.out[[i]]) # overall maximum LOD score
+plot(m3.qtl.out[[i]], 
+  gmap, 
+  lodcolumn=1,
+  col="slateblue", 
+  ylim=c(0, ymx*1.3),
+  main=paste0("Genomescan (sex & intcovar) (scan1): ", i))
+#  abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2) 
+#dev.off()
+
+#pdf(file = paste0("output/figures_sorted/m3_sex.intcovar_",name.phenocsv,"_", i,"_gwas_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+plot(m3.gwas[[i]]$lod, 
+     m3.gwas[[i]]$snpinfo, 
+     altcol="green4", 
+     gap=0, 
+     main = paste0("GWAS (sex & intcovar) (scan1snps): ",i))
+#     abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2)
+#dev.off()
+
+##############################################
+## QTL Results
+##############################################
+
+#load blup results
+load(paste0("output/blup_sorted/m3_sex.intcovar_blup_",name.phenocsv,"_",i,"_sorted.RData"))
+
+#coeffects plot
+#pdf(file = paste0("output/figures_sorted/m3_sex.intcovar_",name.phenocsv,"_",i,"_coeff_geneplot_sorted.pdf"), width = 14)
+#for(i in names(m3.qtl.out)){
+  chr <- as.character(m3.peak[[i]][m3.peak[[i]]$lodcolumn == i,"chr"])
+  par(mar=c(4.1, 4.1, 1.6, 1.6))
+  plot_coefCC(m3.coef[[i]], 
+              gmap[chr], 
+              scan1_output=m3.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex & intcovar) (scan1coef): ",i)
+              )
+  plot_coefCC(m3.blup[[i]], 
+              gmap[chr], 
+              scan1_output=m3.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex & intcovar) [blup values] (scan1blup): ",i)
+              )
+  plot(m3.snps[[i]]$lod, 
+       m3.snps[[i]]$snpinfo, 
+       drop_hilit=1.5, 
+       genes=m3.genes[[i]],
+       main = paste0("SNP Association Mapping (sex & intcovar) (scan1snps): ",i))
+  
+#}
+#dev.off()
+#}
+```
+
+### Plot Scan Results: m4 (Sex + Generation + Cross)
+```{r plot scan result for m4, fig.height=10, fig.width=17, eval=TRUE}
+
+print("Covariates: Sex & Generation & Cross (m4)")
+load(paste0("output/qtl.mapping_sorted/m4_sex.generation.cross_",name.phenocsv,"_sorted.RData"))
+
+##############################################
+## permutation results
+##############################################
+#The default is to return the 5% significance thresholds. Thresholds for other (or for multiple) significance levels can be obtained via the alpha argument.
+
+#for(i in names(m4.qtl.out)){
+#for(i in phenotypes){
+#operm <- get(load(paste0("output/permu_sorted/m4_sex.generation.cross_nperm.1000_",name.phenocsv,"_", i,"_sorted.RData")))
+#cutoff = summary(operm, alpha = c(0.2, 0.1, 0.05, 0.01))
+
+##############################################
+## Genome wide results
+##############################################
+#pdf(file = paste0("output/figures_sorted/m4_sex.generation.cross_",name.phenocsv,"_", i,"_genomescan_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+ymx <- maxlod(m4.qtl.out[[i]]) # overall maximum LOD score
+plot(m4.qtl.out[[i]], 
+  gmap, 
+  lodcolumn=1,
+  col="slateblue", 
+  ylim=c(0, ymx*1.3),
+  main=paste0("Genomescan (sex & generation & cross) (scan1): ", i))
+#  abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2) 
+#dev.off()
+
+#pdf(file = paste0("output/figures_sorted/m4_sex.generation.cross_",name.phenocsv,"_", i,"_gwas_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+plot(m4.gwas[[i]]$lod, 
+     m4.gwas[[i]]$snpinfo, 
+     altcol="green4", 
+     gap=0, 
+     main = paste0("GWAS (sex & generation & cross) (scan1snps): ",i))
+#     abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2)
+#dev.off()
+
+##############################################
+## QTL Results
+##############################################
+
+#load blup results
+load(paste0("output/blup_sorted/m4_sex.generation.cross_blup_",name.phenocsv,"_",i,"_sorted.RData"))
+
+#coeffects plot
+#pdf(file = paste0("output/figures_sorted/m4_sex.generation.cross_",name.phenocsv,"_",i,"_coeff_geneplot_sorted.pdf"), width = 14)
+#for(i in names(m4.qtl.out)){
+  chr <- as.character(m4.peak[[i]][m4.peak[[i]]$lodcolumn == i,"chr"])
+  par(mar=c(4.1, 4.1, 1.6, 1.6))
+  plot_coefCC(m4.coef[[i]], 
+              gmap[chr], 
+              scan1_output=m4.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex & generation & cross) (scan1coef): ",i)
+              )
+  plot_coefCC(m4.blup[[i]], 
+              gmap[chr], 
+              scan1_output=m4.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex & generation & cross) [blup values] (scan1blup): ",i)
+              )
+  plot(m4.snps[[i]]$lod, 
+       m4.snps[[i]]$snpinfo, 
+       drop_hilit=1.5, 
+       genes=m4.genes[[i]],
+       main = paste0("SNP Association Mapping (sex & generation & cross) (scan1snps): ",i))
+  
+#}
+#dev.off()
+#}
+
+```
+
+### Plot Scan Results: m5 (Sex + Cross)
+```{r plot scan result for m5, fig.height=10, fig.width=17, eval=TRUE}
+
+print("Covariates: Sex & Cross (m5)")
+load(paste0("output/qtl.mapping_sorted/m5_sex.cross_",name.phenocsv,"_sorted.RData"))
+
+##############################################
+## permutation results
+##############################################
+#The default is to return the 5% significance thresholds. Thresholds for other (or for multiple) significance levels can be obtained via the alpha argument.
+
+#for(i in names(m5.qtl.out)){
+#for(i in phenotypes){
+#operm <- get(load(paste0("output/permu_sorted/m5_sex.cross_nperm.1000_",name.phenocsv,"_", i,"_sorted.RData")))
+#cutoff = summary(operm, alpha = c(0.2, 0.1, 0.05, 0.01))
+
+##############################################
+## Genome wide results
+##############################################
+#pdf(file = paste0("output/figures_sorted/m5_sex.cross_",name.phenocsv,"_", i,"_genomescan_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+ymx <- maxlod(m5.qtl.out[[i]]) # overall maximum LOD score
+plot(m5.qtl.out[[i]], 
+  gmap, 
+  lodcolumn=1,
+  col="slateblue", 
+  ylim=c(0, ymx*1.3),
+  main=paste0("Genomescan (sex & cross) (scan1): ", i))
+#  abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2) 
+#dev.off()
+
+#pdf(file = paste0("output/figures_sorted/m5_sex.cross_",name.phenocsv,"_", i,"_gwas_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+plot(m5.gwas[[i]]$lod, 
+     m5.gwas[[i]]$snpinfo, 
+     altcol="green4", 
+     gap=0, 
+     main = paste0("GWAS (sex & cross) (scan1snps): ",i))
+#     abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2)
+#dev.off()
+
+##############################################
+## QTL Results
+##############################################
+
+#load blup results
+load(paste0("output/blup_sorted/m5_sex.cross_blup_",name.phenocsv,"_",i,"_sorted.RData"))
+
+#coeffects plot
+#pdf(file = paste0("output/figures_sorted/m5_sex.cross_",name.phenocsv,"_",i,"_coeff_geneplot_sorted.pdf"), width = 14)
+#for(i in names(m5.qtl.out)){
+  chr <- as.character(m5.peak[[i]][m5.peak[[i]]$lodcolumn == i,"chr"])
+  par(mar=c(4.1, 4.1, 1.6, 1.6))
+  plot_coefCC(m5.coef[[i]], 
+              gmap[chr], 
+              scan1_output=m5.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex & cross) (scan1coef): ",i)
+              )
+  plot_coefCC(m5.blup[[i]], 
+              gmap[chr], 
+              scan1_output=m5.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex & cross) [blup values] (scan1blup): ",i)
+              )
+  plot(m5.snps[[i]]$lod, 
+       m5.snps[[i]]$snpinfo, 
+       drop_hilit=1.5, 
+       genes=m5.genes[[i]],
+       main = paste0("SNP Association Mapping (sex & cross) (scan1snps): ",i))
+  
+#}
+#dev.off()
+#}
+
+```
+
+### Plot Scan Results: m6 (Sex + Generation + Cross + Genotype)
+```{r plot scan result for m6, fig.height=10, fig.width=17, eval=TRUE}
+
+print("Covariates: Sex & Generation & Cross & Genotype (m6)")
+load(paste0("output/qtl.mapping_sorted/m6_sex.generation.cross.genotype_",name.phenocsv,"_sorted.RData"))
+
+##############################################
+## permutation results
+##############################################
+#The default is to return the 5% significance thresholds. Thresholds for other (or for multiple) significance levels can be obtained via the alpha argument.
+
+#for(i in names(m6.qtl.out)){
+#for(i in phenotypes){
+#operm <- get(load(paste0("output/permu_sorted/m6_sex.generation.cross.genotype_nperm.1000_",name.phenocsv,"_", i,"_sorted.RData")))
+#cutoff = summary(operm, alpha = c(0.2, 0.1, 0.05, 0.01))
+
+##############################################
+## Genome wide results
+##############################################
+#pdf(file = paste0("output/figures_sorted/m6_sex.generation.cross.genotype_",name.phenocsv,"_", i,"_genomescan_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+ymx <- maxlod(m6.qtl.out[[i]]) # overall maximum LOD score
+plot(m6.qtl.out[[i]], 
+  gmap, 
+  lodcolumn=1,
+  col="slateblue", 
+  ylim=c(0, ymx*1.3),
+  main=paste0("Genomescan (sex & generation & cross & genotype) (scan1): ", i))
+#  abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2) 
+#dev.off()
+
+#pdf(file = paste0("output/figures_sorted/m6_sex.generation.cross.genotype_",name.phenocsv,"_", i,"_gwas_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+plot(m6.gwas[[i]]$lod, 
+     m6.gwas[[i]]$snpinfo, 
+     altcol="green4", 
+     gap=0, 
+     main = paste0("GWAS (sex & generation & cross & genotype) (scan1snps): ",i))
+#     abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2)
+#dev.off()
+
+##############################################
+## QTL Results
+##############################################
+
+#load blup results
+load(paste0("output/blup_sorted/m6_sex.generation.cross.genotype_blup_",name.phenocsv,"_",i,"_sorted.RData"))
+
+#coeffects plot
+#pdf(file = paste0("output/figures_sorted/m6_sex.generation.cross.genotype_",name.phenocsv,"_",i,"_coeff_geneplot_sorted.pdf"), width = 14)
+#for(i in names(m6.qtl.out)){
+  chr <- as.character(m6.peak[[i]][m6.peak[[i]]$lodcolumn == i,"chr"])
+  par(mar=c(4.1, 4.1, 1.6, 1.6))
+  plot_coefCC(m6.coef[[i]], 
+              gmap[chr], 
+              scan1_output=m6.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex & generation & cross & genotype) (scan1coef): ",i)
+              )
+  plot_coefCC(m6.blup[[i]], 
+              gmap[chr], 
+              scan1_output=m6.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex & generation & cross & genotype) [blup values] (scan1blup): ",i)
+              )
+  plot(m6.snps[[i]]$lod, 
+       m6.snps[[i]]$snpinfo, 
+       drop_hilit=1.5, 
+       genes=m6.genes[[i]],
+       main = paste0("SNP Association Mapping (sex & generation & cross & genotype) (scan1snps): ",i))
+  
+#}
+#dev.off()
+#}
+
+```
+
+### Plot Scan Results: m7 (Sex + Cross + Genotype)
+```{r plot scan result for m7, fig.height=10, fig.width=17, eval=TRUE}
+
+print("Covariates: Sex & Cross & Genotype (m7)")
+load(paste0("output/qtl.mapping_sorted/m7_sex.cross.genotype_",name.phenocsv,"_sorted.RData"))
+
+##############################################
+## permutation results
+##############################################
+#The default is to return the 5% significance thresholds. Thresholds for other (or for multiple) significance levels can be obtained via the alpha argument.
+
+#for(i in names(m7.qtl.out)){
+#for(i in phenotypes){
+#operm <- get(load(paste0("output/permu_sorted/m7_sex.cross.genotype_nperm.1000_",name.phenocsv,"_", i,"_sorted.RData")))
+#cutoff = summary(operm, alpha = c(0.2, 0.1, 0.05, 0.01))
+
+##############################################
+## Genome wide results
+##############################################
+#pdf(file = paste0("output/figures_sorted/m7_sex.cross.genotype_",name.phenocsv,"_", i,"_genomescan_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+ymx <- maxlod(m7.qtl.out[[i]]) # overall maximum LOD score
+plot(m7.qtl.out[[i]], 
+  gmap, 
+  lodcolumn=1,
+  col="slateblue", 
+  ylim=c(0, ymx*1.3),
+  main=paste0("Genomescan (sex & cross & genotype) (scan1): ", i))
+# abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2) 
+#dev.off()
+
+#pdf(file = paste0("output/figures_sorted/m7_sex.cross.genotype_",name.phenocsv,"_", i,"_gwas_sorted.pdf"), width = 14)
+#par(mar=c(5.1, 4.1, 1.1, 1.1))
+plot(m7.gwas[[i]]$lod, 
+     m7.gwas[[i]]$snpinfo, 
+     altcol="green4", 
+     gap=0, 
+     main = paste0("GWAS (sex & cross & genotype) (scan1snps): ",i))
+#     abline(h = cutoff, col = c("purple", "red", "blue", "green"), lwd = 2)
+#dev.off()
+
+##############################################
+## QTL Results
+##############################################
+
+#load blup results
+load(paste0("output/blup_sorted/m7_sex.cross.genotype_blup_",name.phenocsv,"_",i,"_sorted.RData"))
+
+#coeffects plot
+#pdf(file = paste0("output/figures_sorted/m7_sex.cross.genotype_",name.phenocsv,"_",i,"_coeff_geneplot_sorted.pdf"), width = 14)
+#for(i in names(m7.qtl.out)){
+  chr <- as.character(m7.peak[[i]][m7.peak[[i]]$lodcolumn == i,"chr"])
+  par(mar=c(4.1, 4.1, 1.6, 1.6))
+  plot_coefCC(m7.coef[[i]], 
+              gmap[chr], 
+              scan1_output=m7.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex & cross & genotype) (scan1coef): ",i)
+              )
+  plot_coefCC(m7.blup[[i]], 
+              gmap[chr], 
+              scan1_output=m7.qtl.out[[i]], 
+              bgcolor="gray95", #legend="bottomleft", 
+              main =paste0("Genomescan (sex & cross & genotype) [blup values] (scan1blup): ",i)
+              )
+  plot(m7.snps[[i]]$lod, 
+       m7.snps[[i]]$snpinfo, 
+       drop_hilit=1.5, 
+       genes=m7.genes[[i]],
+       main = paste0("SNP Association Mapping (sex & cross & genotype) (scan1snps): ",i))
+  
+#}
+#dev.off()
+#}
+
+```
