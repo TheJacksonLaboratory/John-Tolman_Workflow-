@@ -92,6 +92,6 @@ output:
 * Step 5: QTL Best Linear Unbiased Prediction (BLUP) (`R/qtl2`)
 * Step 6: Results from `R/qtl2` analysis [Raw Data]
 	+ All variants included
-		+ [max IOP](3.6_plot_qtl_mapping_max_IOP_sorted.html)
-		+ [max corneal haze](3.6_plot_qtl_mapping_max_corneal_haze_sorted.html)
-		+ [Pupil_not_round_binary](3.6_plot_qtl_mapping_Pupil_not_round_binary_sorted.html)
+		+ [max IOP](3.6_plot_qtl_mapping_max_IOP_sorted_edited.html)
+		+ [max corneal haze](3.6_plot_qtl_mapping_max_corneal_haze_sorted_edited.html)
+		+ [Pupil_not_round_binary](3.6_plot_qtl_mapping_Pupil_not_round_binary_sorted_edited.html)
